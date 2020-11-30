@@ -1,85 +1,38 @@
-import { useState, useEffect } from "react";
-import { MapContainer, GeoJSON, Marker, Popup, useMap } from "react-leaflet";
+import { useState } from "react";
+import { MapContainer } from "react-leaflet";
+import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 
-import mexGeo from "../../public/GeoJSONs/mx_states.json";
-import worldGeo from "../../public/GeoJSONs/world.json";
+import ESTADOS from "../../GraphQl/Queries/ESTADOS";
 
+import MapContent from "./MapContent";
+import EstadoDetail from "./EstadoDetail";
 import Switch from "../DS/Switch";
-
-function MapContent({ worldScope, currentState, currentStateChange }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (worldScope) {
-      map.setView([45, 10], 2);
-    } else {
-      map.setView([23.634501, -102.552784], 5);
-    }
-  }, [worldScope]);
-
-  const handleClick = (ev) => {
-    alert(ev.target.feature.properties.state_name);
-  };
-
-  const handleOver = (ev) => {
-    let state = ev.target.feature.properties.state_name;
-    if (state !== currentState) {
-      currentStateChange(state);
-    }
-  };
-
-  const handleOut = (ev) => {};
-
-  function onEachFeature(feature, layer) {
-    layer.on("click", handleClick);
-    layer.on("mouseover", handleOver);
-    layer.on("mouseout", handleOver);
-  }
-
-  function mapStyler(feature) {
-    return {
-      color: "#4a83ec",
-      weight: 0.5,
-      fillColor: feature.properties.hasInsects ? "green" : "#1a1d62",
-      fillOpacity: 1,
-    };
-  }
-
-  return (
-    <>
-      <GeoJSON
-        key={worldScope ? "world scope geojson" : "mex scope geojson"}
-        data={worldScope ? worldGeo : mexGeo}
-        style={mapStyler}
-        onEachFeature={onEachFeature.bind(this)}
-      />
-      {/* <Marker position={[19.432608, -99.133208]}>
-        <Popup>
-          A pretty CSS3 popup. <br />
-        </Popup>
-      </Marker> */}
-    </>
-  );
-}
 
 export default function Map() {
   const [worldScope, worldScopeChange] = useState(false);
-  const [currentState, currentStateChange] = useState("");
+  const [currentState, currentStateChange] = useState({
+    name: "",
+    state_code: null,
+  });
+
+  const { error, data } = useQuery(ESTADOS);
+
+  if (error) {
+    console.log(error);
+    return null;
+  }
 
   return (
     <Wrapper>
       <SwitchWrapper>
         <Switch value={worldScope} valueChange={worldScopeChange} />
       </SwitchWrapper>
-      <CurrentStateWrapper>
-        {currentState === "" ? "No state" : currentState}
-      </CurrentStateWrapper>
       <MapContainer
         center={[23.634501, -102.552784]}
         zoom={5}
         scrollWheelZoom={false}
-        style={{ width: "100%", height: "700px" }}
+        style={{ width: "60%", height: "700px", minWidth: 740 }}
       >
         <MapContent
           worldScope={worldScope}
@@ -87,26 +40,22 @@ export default function Map() {
           currentStateChange={currentStateChange}
         />
       </MapContainer>
+      <EstadoDetail currentState={currentState} />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const SwitchWrapper = styled.div`
   margin-bottom: 12px;
   position: absolute;
-  z-index: 100;
+  z-index: 200;
   top: 20px;
-  right: 20px;
-`;
-
-const CurrentStateWrapper = styled.div`
-  position: absolute;
-  z-index: 100;
-  top: 44px;
   right: 20px;
 `;
 
