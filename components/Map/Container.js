@@ -56,7 +56,7 @@ function MapContent({ worldScope, currentState, currentStateChange }) {
       />
       {/* <Marker position={[19.432608, -99.133208]}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          A pretty CSS3 popup. <br />
         </Popup>
       </Marker> */}
     </>

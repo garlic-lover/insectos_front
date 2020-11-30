@@ -12,6 +12,7 @@ export default function Header() {
       <Menu>
         <Link href="/">{t("home")}</Link> <Link href="/map">{t("map")}</Link>
         <Link href="/facts">{t("facts")}</Link>
+        <Link href="/database">Database</Link>
       </Menu>
 
       <select
