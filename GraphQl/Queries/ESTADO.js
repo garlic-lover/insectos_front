@@ -5,6 +5,10 @@ const ESTADO = gql`
     estado(state_code: $state_code) {
       _id
       insects {
+        order
+        family
+        specie
+        genus
         commonNames
       }
     }

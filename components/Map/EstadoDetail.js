@@ -4,15 +4,26 @@ import { useQuery } from "@apollo/client";
 
 import ESTADO from "../../GraphQl/Queries/ESTADO";
 
+import Insect from "./Insect";
 import CreatePopup from "./CreatePopup";
 
-export default function EstadoDetail({
-  currentState: { state_name, state_code },
-}) {
+export default function EstadoDetail({ currentState }) {
+  return (
+    <Wrapper>
+      <Content currentState={currentState} />
+    </Wrapper>
+  );
+}
+
+function Content({ currentState: { state_name, state_code } }) {
   const [displayPopup, displayPopupChange] = useState(false);
   const { error, loading, data, refetch } = useQuery(ESTADO, {
     variables: { state_code },
   });
+
+  if (!state_code) {
+    return <h4>No estado selectionado</h4>;
+  }
 
   if (error) {
     console.log(error);
@@ -25,15 +36,16 @@ export default function EstadoDetail({
   const { _id, insects } = data.estado;
 
   return (
-    <Wrapper>
-      <h3>{state_name}</h3>
-      {insects.length === 0 && (
-        <p>No insect found in our database for this insect</p>
-      )}
-      {insects.map((insect, index) => {
-        console.log(insect);
-        return <p key={index}>{insect.commonNames}</p>;
-      })}
+    <>
+      <h3>Estado : {state_name}</h3>
+      <List>
+        {insects.length === 0 &&
+          "No insect found in our database for this insect"}
+        {insects.map((insect, index) => {
+          return <Insect key={index} insect={insect} />;
+        })}
+      </List>
+
       <button
         onClick={() => {
           displayPopupChange(true);
@@ -50,13 +62,16 @@ export default function EstadoDetail({
           refetch={refetch}
         />
       )}
-    </Wrapper>
+    </>
   );
 }
 
 const Wrapper = styled.div`
   z-index: 100;
-  width: 35%;
+  width: calc(38% - 24px);
+  border: solid 1px #dddddd;
+  padding-top: 24px;
+  padding-left: 24px;
   & h3 {
     margin-bottom: 24px;
     font-size: 1.4rem;
@@ -71,4 +86,8 @@ const Wrapper = styled.div`
   & button:hover {
     border-color: rgb(0, 0, 0, 0.6);
   }
+`;
+
+const List = styled.ul`
+  margin-bottom: 24px;
 `;

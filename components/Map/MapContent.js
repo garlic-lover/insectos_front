@@ -8,6 +8,8 @@ export default function MapContent({
   worldScope,
   currentState,
   currentStateChange,
+  overredState,
+  overredStateChange,
 }) {
   const map = useMap();
 
@@ -27,10 +29,10 @@ export default function MapContent({
   };
 
   const handleOver = (ev) => {
-    /* let { state_name, state_code } = ev.target.feature.properties;
-    if (state_name !== currentState.state_name) {
-      currentStateChange({ state_name, state_code });
-    } */
+    let { state_name } = ev.target.feature.properties;
+    if (state_name !== overredState) {
+      overredStateChange(state_name);
+    }
   };
 
   const handleOut = (ev) => {};

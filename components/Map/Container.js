@@ -11,6 +11,7 @@ import Switch from "../DS/Switch";
 
 export default function Map() {
   const [worldScope, worldScopeChange] = useState(false);
+  const [overredState, overredStateChange] = useState(null);
   const [currentState, currentStateChange] = useState({
     name: "",
     state_code: null,
@@ -25,20 +26,23 @@ export default function Map() {
 
   return (
     <Wrapper>
-      <SwitchWrapper>
-        <Switch value={worldScope} valueChange={worldScopeChange} />
-      </SwitchWrapper>
       <MapContainer
         center={[23.634501, -102.552784]}
         zoom={5}
         scrollWheelZoom={false}
-        style={{ width: "60%", height: "700px", minWidth: 740, zIndex: 1 }}
+        style={{ width: "60%", height: "600px", minWidth: 740, zIndex: 1 }}
       >
         <MapContent
           worldScope={worldScope}
           currentState={currentState}
           currentStateChange={currentStateChange}
+          overredState={overredState}
+          overredStateChange={overredStateChange}
         />
+        <OveredState>{overredState}</OveredState>
+        <SwitchWrapper>
+          <Switch value={worldScope} valueChange={worldScopeChange} />
+        </SwitchWrapper>
       </MapContainer>
       <EstadoDetail currentState={currentState} />
     </Wrapper>
@@ -51,11 +55,19 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const SwitchWrapper = styled.div`
+const OveredState = styled.div`
   margin-bottom: 12px;
   position: absolute;
   z-index: 200;
   top: 20px;
+  right: 20px;
+`;
+
+const SwitchWrapper = styled.div`
+  margin-bottom: 12px;
+  position: absolute;
+  z-index: 200;
+  top: 45px;
   right: 20px;
 `;
 
