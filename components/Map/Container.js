@@ -32,7 +32,7 @@ export default function Map() {
         center={[23.634501, -102.552784]}
         zoom={5}
         scrollWheelZoom={false}
-        style={{ width: "60%", height: "700px", minWidth: 740 }}
+        style={{ width: "60%", height: "700px", minWidth: 740, zIndex: 1 }}
       >
         <MapContent
           worldScope={worldScope}

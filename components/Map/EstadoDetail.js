@@ -45,9 +45,9 @@ export default function EstadoDetail({
         <CreatePopup
           _id={_id}
           close={() => {
-            refetch();
             displayPopupChange(false);
           }}
+          refetch={refetch}
         />
       )}
     </Wrapper>
@@ -61,11 +61,12 @@ const Wrapper = styled.div`
     margin-bottom: 24px;
     font-size: 1.4rem;
   }
+  & p {
+  }
   & button {
     transition: ease-in-out 0.25s;
-    margin-top: 24px;
     border: solid 1px lightGrey;
-    padding: 6px 12px;
+    padding: 12px 24px;
   }
   & button:hover {
     border-color: rgb(0, 0, 0, 0.6);

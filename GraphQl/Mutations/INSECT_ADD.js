@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const INSECT_ADD = gql`
-  mutation insectAdd($commonName: String, $estado: String) {
-    insectAdd(commonName: $commonName, estado: $estado)
+  mutation insectAdd($insect: InsectInput) {
+    insectAdd(insect: $insect)
   }
 `;
 
