@@ -6,7 +6,7 @@ function Opened({ order, family }) {
   return (
     <OpenedWrapper>
       <p>
-        <span>Orden</span> : {order}
+        <span>Orden</span> : {order.main} ({order.sub})
       </p>
       <p>
         <span>Familia</span> : {family}
