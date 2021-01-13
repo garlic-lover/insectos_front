@@ -69,9 +69,12 @@ function Content({ currentState: { state_name, state_code } }) {
 const Wrapper = styled.div`
   z-index: 100;
   width: calc(38% - 24px);
-  border: solid 1px #dddddd;
+  // border: solid 1px #dddddd;
   padding-top: 24px;
   padding-left: 24px;
+  height: 454px;
+  overflow: scroll;
+  padding-bottom: 20px;
   & h3 {
     margin-bottom: 24px;
     font-size: 1.4rem;

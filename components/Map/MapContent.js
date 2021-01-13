@@ -43,11 +43,20 @@ export default function MapContent({
     layer.on("mouseout", handleOver);
   }
 
-  function mapStyler(feature) {
+  /*  function mapStyler(feature) {
     return {
       color: "#4a83ec",
       weight: 0.5,
       fillColor: feature.properties.hasInsects ? "green" : "#1a1d62",
+      fillOpacity: 1,
+    };
+  } */
+
+  function mapStyler(feature) {
+    return {
+      color: "#a35638",
+      weight: 0.5,
+      fillColor: feature.properties.hasInsects ? "green" : "#d7c79e",
       fillOpacity: 1,
     };
   }

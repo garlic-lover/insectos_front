@@ -20,6 +20,7 @@ const initialState = {
   personalData: {},
   t: getTranslate("fr"),
   lang: "fr",
+  languageSwitchOpened: false,
 };
 
 const store = createContext(initialState);
@@ -40,6 +41,11 @@ const StateProvider = ({ children }) => {
           ...state,
           lang: action.lang,
           t: getTranslate(action.lang),
+        };
+      case "languageSwitchOpenedChange":
+        return {
+          ...state,
+          languageSwitchOpened: action.languageSwitchOpened,
         };
       default:
         throw new Error();

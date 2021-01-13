@@ -1,11 +1,16 @@
 import { ApolloProvider } from "@apollo/client";
 import client from "../GraphQl/config";
 
+import dynamic from "next/dynamic";
+const Layout = dynamic(() => import("../components/DS/Layout"), {
+  ssr: false,
+});
+
 import { StateProvider } from "../store.js";
 
 import "../styles/globals.css";
-
-import Layout from "../components/DS/Layout";
+import "../styles/locomotive.css";
+import "../styles/icomoon.css";
 
 function MyApp({ Component, pageProps }) {
   return (

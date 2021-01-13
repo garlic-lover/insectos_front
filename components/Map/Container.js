@@ -30,7 +30,7 @@ export default function Map() {
         center={[23.634501, -102.552784]}
         zoom={5}
         scrollWheelZoom={false}
-        style={{ width: "60%", height: "600px", minWidth: 740, zIndex: 1 }}
+        style={{ width: "60%", height: "500px", minWidth: 760, zIndex: 1 }}
       >
         <MapContent
           worldScope={worldScope}
@@ -53,6 +53,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 const OveredState = styled.div`

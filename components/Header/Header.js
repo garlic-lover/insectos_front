@@ -1,53 +1,61 @@
+import styled from "styled-components";
 import Link from "next/link";
 
 import useTranslate from "../../hooks/useTranslate";
 
-import styled from "styled-components";
+import LanguageSwitch from "./LanguageSwitch";
 
 export default function Header() {
-  const { t, lang, languageSwitch } = useTranslate();
+  const { t } = useTranslate();
+
   return (
     <Container>
-      <h1>INSECTIVORA</h1>
-      <Menu>
-        <Link href="/">{t("home")}</Link> <Link href="/map">{t("map")}</Link>
-        <Link href="/facts">{t("facts")}</Link>
-        <Link href="/database">Database</Link>
-      </Menu>
-
-      <select
-        value={lang}
-        onChange={(ev) => {
-          languageSwitch(ev.target.value);
-        }}
-      >
-        <option>es</option>
-        <option>fr</option>
-        <option>en</option>
-      </select>
+      <section>
+        <Link href="/">
+          <h1>INSECTIVORA</h1>
+        </Link>
+        <Menu>
+          <Link href="/map">{t("map")}</Link>
+          <Link href="/facts">{t("facts")}</Link>
+          <Link href="/collaborate">{t("collaborate")}</Link>
+          <LanguageSwitch />
+        </Menu>
+      </section>
     </Container>
   );
 }
 
 const Container = styled.header`
-  height: 80px;
-  box-shadow: 0 8px 16px hsla(30, 21%, 81%, 0.15);
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  & select {
+  z-index: 100;
+  & section {
+    position: relative;
+    width: 94%;
+    max-width: 1040px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & h1 {
     position: absolute;
-    right: 1rem;
+    left: 0;
+    font-size: 2rem;
+    cursor: pointer;
   }
 `;
 
 const Menu = styled.div`
   position: absolute;
-  left: 1rem;
+  right: 0;
+  display: flex;
   & a {
     color: inherit;
     text-decoration: inherit;
     margin-left: 12px;
+    font-size: 18px;
   }
   & a:first:child {
     margin-left: 0;

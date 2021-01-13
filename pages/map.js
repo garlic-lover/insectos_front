@@ -16,4 +16,8 @@ export default function MapPage() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 94%;
+  max-width: 1040px;
+  margin: auto;
+`;

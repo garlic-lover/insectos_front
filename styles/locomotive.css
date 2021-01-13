@@ -1,0 +1,18 @@
+.title {
+  opacity: 0;
+  transition: opacity 4s;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.hiddenSlow {
+  opacity: 0;
+  transition: opacity 4s;
+}
+
+.appear {
+  opacity: 1;
+}

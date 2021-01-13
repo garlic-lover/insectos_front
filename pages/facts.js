@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <Container>
-      <h2>{t("cards")}</h2>
       <CardsWrapper>
         <Deck />
       </CardsWrapper>
@@ -21,11 +20,14 @@ const Container = styled.div`
   & h2 {
     font-size: 2rem;
   }
+  min-height: 80vh;
 `;
 
 const CardsWrapper = styled.div`
-  position: fixed;
+  /*   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: center;
 `;
