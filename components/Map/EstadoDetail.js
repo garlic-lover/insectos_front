@@ -83,11 +83,9 @@ const Wrapper = styled.div`
   }
   & button {
     transition: ease-in-out 0.25s;
-    border: solid 1px lightGrey;
     padding: 12px 24px;
   }
   & button:hover {
-    border-color: rgb(0, 0, 0, 0.6);
   }
 `;
 

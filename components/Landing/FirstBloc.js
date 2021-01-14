@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import styled from "styled-components";
 
 export default function FirstBloc({ t }) {
+  const router = useRouter();
+
   return (
     <Wrapper>
       <div>
@@ -10,7 +13,13 @@ export default function FirstBloc({ t }) {
           La comida con insectos será la próxima tendancia en la gastronomia
           mundial. Y tú, ¿te los imaginas en tu plato?
         </p>
-        <button>Más información</button>
+        <button
+          onClick={() => {
+            router.push("/facts");
+          }}
+        >
+          Más información
+        </button>
       </div>
       <Chapulines src="/images/chapulines.jpg" />
     </Wrapper>
