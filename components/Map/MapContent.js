@@ -4,12 +4,15 @@ import { GeoJSON, Marker, Popup, useMap } from "react-leaflet";
 import mexGeo from "../../public/GeoJSONs/mx_states.json";
 import worldGeo from "../../public/GeoJSONs/world.json";
 
+import areThereInsects from "./areThereInsects";
+
 export default function MapContent({
   worldScope,
   currentState,
   currentStateChange,
   overredState,
   overredStateChange,
+  estados,
 }) {
   const map = useMap();
 
@@ -56,7 +59,9 @@ export default function MapContent({
     return {
       color: "#a35638",
       weight: 0.5,
-      fillColor: feature.properties.hasInsects ? "green" : "#d7c79e",
+      fillColor: feature.properties.hasInsects
+        ? "rgba(121, 147, 82, 0.4)"
+        : "#d7c79e",
       fillOpacity: 1,
     };
   }
@@ -65,7 +70,7 @@ export default function MapContent({
     <>
       <GeoJSON
         key={worldScope ? "world scope geojson" : "mex scope geojson"}
-        data={worldScope ? worldGeo : mexGeo}
+        data={worldScope ? worldGeo : areThereInsects(mexGeo, estados)}
         style={mapStyler}
         onEachFeature={onEachFeature.bind(this)}
       />

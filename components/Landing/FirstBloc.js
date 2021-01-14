@@ -4,13 +4,13 @@ export default function FirstBloc({ t }) {
   return (
     <Wrapper>
       <div>
-        <p>Et si </p>
+        <p>Comer insectos... </p>
         <h2>{t("homeTitle")}</h2>
         <p>
-          Wenn Sie zuverlässige Ingenieure brauchen – das Ingenieurbüro Dieter
-          Weiss ist Garant für den Er­folg Ihrer Projekte.
+          La comida con insectos será la próxima tendancia en la gastronomia
+          mundial. Y tú, ¿te los imaginas en tu plato?
         </p>
-        <button>En savoir plus</button>
+        <button>Más información</button>
       </div>
       <Chapulines src="/images/chapulines.jpg" />
     </Wrapper>
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   & div {
-    width: 38%;
+    width: 40%;
   }
   & p {
   //   color: ${(props) => props.theme.color2};
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   }
   & h2 {
     font-size: 1.8rem;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
   & button {
     margin-top: 12px;
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 
 const Chapulines = styled.img`
   width: auto;
-  max-width: 55%;
+  max-width: 53%;
   height: auto;
   border-radius: 6px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);

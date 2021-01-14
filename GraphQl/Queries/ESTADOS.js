@@ -5,6 +5,9 @@ const ESTADOS = gql`
     estados {
       name
       state_code
+      insects {
+        commonNames
+      }
     }
   }
 `;

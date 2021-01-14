@@ -24,6 +24,10 @@ export default function Map() {
     return null;
   }
 
+  if (!data) {
+    return "Loading...";
+  }
+
   return (
     <Wrapper>
       <MapContainer
@@ -38,6 +42,7 @@ export default function Map() {
           currentStateChange={currentStateChange}
           overredState={overredState}
           overredStateChange={overredStateChange}
+          estados={data.estados}
         />
         <OveredState>{overredState}</OveredState>
         <SwitchWrapper>
