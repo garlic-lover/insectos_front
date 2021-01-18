@@ -30,7 +30,6 @@ const Wrapper = styled.div`
   width: 94%;
   max-width: 1040px;
   margin: auto;
-  height: 400px;
   margin-bottom  100px;
   margin-top : 30px;
   display: flex;
@@ -51,6 +50,25 @@ const Wrapper = styled.div`
   & button {
     margin-top: 12px;
   }
+  @media (max-width: 680px) {
+    flex-direction : column;
+    margin-top : 0px;
+    margin-bottom : 40px;
+    & div{
+      width : 100%
+    }
+    & h2 {
+      font-size: 1.6rem;
+      line-height : 2rem;
+      margin-bottom: 12px;
+    }
+    & button {
+      margin : auto;
+      margin-top: 36px;
+      display : block;
+      margin-bottom: 36px
+    }
+  }
 `;
 
 const Chapulines = styled.img`
@@ -59,4 +77,7 @@ const Chapulines = styled.img`
   height: auto;
   border-radius: 6px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+  @media (max-width: 680px) {
+    max-width: 100%;
+  }
 `;

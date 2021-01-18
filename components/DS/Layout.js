@@ -48,4 +48,9 @@ const Main = styled.div``;
 
 const Container = styled.div`
   margin-top: 60px;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  @media (max-width: 680px) {
+    margin-top: 30px;
+  }
 `;

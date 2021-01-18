@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
     background-color : ${(props) => props.theme.background};
     font-family: Raleway;
     font-weight : 200;
-    color : ${(props) => props.theme.main}
+    color : ${(props) => props.theme.main};
+    overflow-x: hidden !important;
     }
     h1, h2, h3, h4, h5, h6{
         font-family: Montserrat;    
