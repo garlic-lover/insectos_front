@@ -8,7 +8,19 @@ import { to, from } from "./positionFunctions";
 
 import SimpleCard from "./SimpleCard";
 
+const backgroundColors = [
+  "#d7c79e",
+  "rgba(121, 147, 82)",
+  "#9dab86",
+  "#a35638",
+];
+
 const testCards = [
+  {
+    title: "Fact 4",
+    subTitle: "Insects contain a complete/whole protein",
+    color: "#aee6e6",
+  },
   {
     title: "Fact 3",
     subTitle: "Insects contain a complete/whole protein",
@@ -73,7 +85,10 @@ export default function Deck() {
             style={props}
             title={title}
             subTitle={subTitle}
-            color={color}
+            backgroundColor={backgroundColors[i % 4]}
+            color={
+              backgroundColors[i % 4] === "#a35638" ? "#d7c79e" : "#a35638"
+            }
             bind={bind}
           />
         );

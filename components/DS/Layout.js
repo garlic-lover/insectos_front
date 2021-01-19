@@ -52,7 +52,7 @@ export default function Layout({ children }) {
 const Main = styled.div``;
 
 const Container = styled.div`
-  margin-top: 60px;
+  margin-top: 20px;
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {

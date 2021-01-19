@@ -32,4 +32,5 @@ const Wrapper = styled.div`
     font-size: 12px;
   }
   margin-bottom: 60px;
+  margin-top: 40px;
 `;

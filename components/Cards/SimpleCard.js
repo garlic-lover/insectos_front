@@ -9,6 +9,7 @@ export default function SimpleCard({
   isTop,
   title,
   subTitle,
+  backgroundColor,
   color,
   style,
   bind,
@@ -29,6 +30,7 @@ export default function SimpleCard({
         style={{
           transform: interpolate([rot, scale], trans),
         }}
+        backgroundColor={backgroundColor}
         color={color}
         isontop={isTop ? "true" : "false"}
       >
@@ -50,26 +52,31 @@ const Wrapper = styled(animated.div)`
 `;
 
 const Card = styled(animated.div)`
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
   will-change: transform;
   height: 300px;
   width: 220px;
   border-radius: 14px;
-  background-color: ${(props) => props.color};
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  //align-items: center;
   box-shadow: ${(props) =>
     props.isontop === "true"
       ? "0 12.5px 100px -10px rgba(50, 50, 73, 0.4),0 10px 10px -10px rgba(50, 50, 73, 0.3)"
       : ""};
   padding: 20px;
   & h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    border-bottom: solid 1px;
     margin-bottom: 2rem;
   }
   & p {
     line-height: 1.5rem;
-    text-align: center;
+    //  text-align: center;
   }
 `;

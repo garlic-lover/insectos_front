@@ -21,7 +21,7 @@ const Container = styled.div`
     font-size: 2rem;
   }
   // min-height: 80vh;
-  // border: solid 1px white;
+  //  border: solid 1px white;
 `;
 
 const CardsWrapper = styled.div`
