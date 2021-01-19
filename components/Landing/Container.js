@@ -1,15 +1,16 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 // import LocomotiveScroll from "locomotive-scroll";
 
 import FirstBloc from "./FirstBloc";
 import SecondBloc from "./SecondBloc";
+import ThirdBloc from "./ThirdBloc";
 
 export default function Container({ t }) {
   return (
     <Wrapper>
       <FirstBloc t={t} />
       <SecondBloc t={t} />
+      <ThirdBloc t={t} />
     </Wrapper>
   );
 }
@@ -26,4 +27,5 @@ const Wrapper = styled.div`
     border-radius: 50px;
     font-size: 12px;
   }
+  margin-bottom: 60px;
 `;

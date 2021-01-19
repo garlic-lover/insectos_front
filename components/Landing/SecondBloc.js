@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 function Objectives({ t }) {
@@ -26,26 +26,139 @@ function AboutUs() {
   );
 }
 
+import useAppContext from "@hooks/useAppContext";
+
 export default function SecondBloc({ t }) {
   const [page, pageChange] = useState(0);
 
+  const {
+    state: { theScroll },
+  } = useAppContext();
+
+  useEffect(() => {
+    if (theScroll) {
+      setTimeout(() => {
+        theScroll.update();
+      }, 500);
+    }
+  }, [theScroll]);
+
   return (
     <Wrapper
-      id="stick"
+    /*  id="stick"
       className="hiddenSlow"
       data-scroll
-      data-scroll-class="appear"
+      data-scroll-class="appear" */
     >
       <Main>
         <Title
+          className="hiddenSlow"
           data-scroll
           data-scroll-class="appear"
           /* data-scroll-sticky
           data-scroll-target="#stick" */
         >
-          The insectivora project
+          Insectivora, que es ?
         </Title>
-        <Menu className="hidden" data-scroll data-scroll-class="appear">
+        <SubTitle>
+          What are our objectives with the insectivora project
+        </SubTitle>
+        <Grid>
+          <div>
+            <h4>Hey, idea 1</h4>
+            <p>
+              Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
+              ex. Laboris aliqua ex duis reprehenderit amet minim consectetur
+              cupidatat veniam est. Eu qui ad commodo enim dolore enim anim
+              pariatur proident enim ex quis eiusmod officia.
+            </p>
+          </div>
+          <div>
+            <h4>Hey, idea 2</h4>
+            <p>
+              Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
+              ex. Laboris aliqua ex duis reprehenderit amet minim consectetur
+              cupidatat veniam est. Eu qui ad commodo enim dolore enim anim
+              pariatur proident enim ex quis eiusmod officia.
+            </p>
+          </div>
+          <div>
+            <h4>Hey, idea 3</h4>
+            <p>
+              Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
+              ex. Laboris aliqua ex duis reprehenderit amet minim consectetur
+              cupidatat veniam est. Eu qui ad commodo enim dolore enim anim
+              pariatur proident enim ex quis eiusmod officia.
+            </p>
+          </div>
+        </Grid>
+      </Main>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @media (max-width: 680px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+`;
+
+const Main = styled.div`
+  width: 94%;
+  max-width: 1040px;
+  text-align: center;
+`;
+
+const Title = styled.h3`
+  font-size: 40px;
+  margin-bottom: 6px;
+  color: ${(props) => ""};
+  text-align: center;
+  @media (max-width: 680px) {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+`;
+
+const SubTitle = styled.p`
+  font-size: 18px;
+  margin-bottom: 40px;
+  @media (max-width: 680px) {
+    font-size: 16px;
+    width: 80%;
+    margin: auto;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 14px;
+  & div {
+    padding: 30px;
+  }
+  & h4 {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
+  & p {
+    line-height: 12px;
+    font-size: 15px;
+    text-align: left;
+  }
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+{
+  /*    <Menu className="hidden" data-scroll data-scroll-class="appear">
           <MenuItem
             selected={page === 0}
             onClick={() => {
@@ -63,27 +176,12 @@ export default function SecondBloc({ t }) {
             About us
           </MenuItem>
         </Menu>
-        {page === 0 ? <Objectives t={t} /> : <AboutUs />}
-      </Main>
-    </Wrapper>
-  );
+       */
 }
 
-const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.color2};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 120px;
-  padding-bottom: 120px;
-  min-height: 400px;
-`;
-
-const Main = styled.div`
-  width: 94%;
-  max-width: 1040px;
-  text-align: center;
-`;
+{
+  /*  {page === 0 ? <Objectives t={t} /> : <AboutUs />} */
+}
 
 const Menu = styled.div`
   display: flex;
@@ -98,11 +196,4 @@ const MenuItem = styled.h3`
   &:first-child {
     margin-right: 12px;
   }
-`;
-
-const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: ${(props) => ""};
-  text-align: center;
 `;

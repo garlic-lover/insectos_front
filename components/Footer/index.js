@@ -29,7 +29,7 @@ const Wrapper = styled.footer`
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: ${(props) => props.theme.color2};
+  background-color: ${(props) => props.theme.main};
   background-color: rgba(121, 147, 82, 0.5);
 `;
 

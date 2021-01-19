@@ -21,6 +21,7 @@ const initialState = {
   t: getTranslate("es"),
   lang: "es",
   menuOpened: false,
+  theScroll: null,
 };
 
 const store = createContext(initialState);
@@ -46,6 +47,11 @@ const StateProvider = ({ children }) => {
         return {
           ...state,
           menuOpened: action.menuOpened,
+        };
+      case "theScrollChange":
+        return {
+          ...state,
+          theScroll: action.theScroll,
         };
       default:
         throw new Error();

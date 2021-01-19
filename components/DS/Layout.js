@@ -12,12 +12,11 @@ import theme from "./theme.json";
 import useAppContext from "@hooks/useAppContext";
 
 export default function Layout({ children }) {
-  const [theScroll, theScrollChange] = useState(null);
-
   const router = useRouter();
 
   const {
-    state: { menuOpened },
+    state: { menuOpened, theScroll },
+    dispatch,
   } = useAppContext();
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function Layout({ children }) {
         smooth: true,
         multiplier: 0.6,
       });
-      theScrollChange(scroll);
+      dispatch({ type: "theScrollChange", theScroll: scroll });
     }
   }, [theScroll]);
 

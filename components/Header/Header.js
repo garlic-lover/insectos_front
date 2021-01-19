@@ -125,12 +125,15 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.a`
-  transition: 0.4s;
+  transition: 0.3s;
   text-decoration: underline;
   cursor: pointer;
   padding-bottom: 2px;
   border-bottom: solid 2.5px
     ${(props) => (props.isSelected ? props.theme.main : props.theme.background)};
+  &:hover {
+    border-bottom: solid 2.5px ${(props) => props.theme.main};
+  }
 `;
 
 const ShadowAppear = keyframes`
