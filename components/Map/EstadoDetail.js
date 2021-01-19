@@ -29,7 +29,7 @@ function Content({ currentState: { state_name, state_code } }) {
     console.log(error);
     return null;
   }
-  if (loading || !data.estado) {
+  if (loading /* || !data.estado */) {
     return null;
   }
 
@@ -45,10 +45,10 @@ function Content({ currentState: { state_name, state_code } }) {
           return <Insect key={index} insect={insect} />;
         })}
       </List>
-
       <button
         onClick={() => {
-          displayPopupChange(true);
+          alert("Disponible pronto..");
+          //displayPopupChange(true);
         }}
       >
         Add insect
@@ -67,13 +67,11 @@ function Content({ currentState: { state_name, state_code } }) {
 }
 
 const Wrapper = styled.div`
-  z-index: 100;
   width: calc(38% - 24px);
   // border: solid 1px #dddddd;
   padding-top: 24px;
   padding-left: 24px;
   height: 454px;
-  overflow: scroll;
   padding-bottom: 20px;
   & h3 {
     margin-bottom: 24px;
@@ -87,8 +85,25 @@ const Wrapper = styled.div`
   }
   & button:hover {
   }
+  @media (max-width: 680px) {
+    width: 100%;
+    padding-left: 0;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+  }
 `;
 
 const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
   margin-bottom: 24px;
+  width: 100%;
+  padding: 0;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: visible;
 `;

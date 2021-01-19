@@ -59,7 +59,13 @@ export default function Header() {
             <LanguageSwitch />
           </Menu>
         </section>
-        {menuOpened && <Shadow />}
+        {menuOpened && (
+          <Shadow
+            onClick={() => {
+              dispatch({ type: "menuOpenedChange", menuOpened: false });
+            }}
+          />
+        )}
       </Container>
     </>
   );
@@ -86,6 +92,7 @@ const Container = styled.header`
     cursor: pointer;
   }
   @media (max-width: 680px) {
+    box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
     width: 100%;
     position: fixed;
     top: 0;

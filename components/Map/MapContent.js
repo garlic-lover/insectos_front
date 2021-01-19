@@ -13,14 +13,15 @@ export default function MapContent({
   overredState,
   overredStateChange,
   estados,
+  width,
 }) {
   const map = useMap();
 
   useEffect(() => {
     if (worldScope) {
-      map.setView([45, 10], 2);
+      map.setView([45, 10], width > 680 ? 2 : 1);
     } else {
-      map.setView([23.634501, -102.552784], 5);
+      map.setView([23.634501, -101.9], width > 680 ? 5 : 4);
     }
   }, [worldScope]);
 
@@ -45,15 +46,6 @@ export default function MapContent({
     layer.on("mouseover", handleOver);
     layer.on("mouseout", handleOver);
   }
-
-  /*  function mapStyler(feature) {
-    return {
-      color: "#4a83ec",
-      weight: 0.5,
-      fillColor: feature.properties.hasInsects ? "green" : "#1a1d62",
-      fillOpacity: 1,
-    };
-  } */
 
   function mapStyler(feature) {
     return {

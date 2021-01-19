@@ -8,7 +8,12 @@ export default function ST({ value, valueChange }) {
         valueChange(!value);
       }}
     >
-      <Circle isOn={value} />
+      <Circle
+        isOn={value}
+        /* onClick={(e) => {
+          e.stopPropagation();
+        }} */
+      />
     </Switch>
   );
 }

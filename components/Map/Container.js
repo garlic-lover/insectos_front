@@ -9,6 +9,8 @@ import MapContent from "./MapContent";
 import EstadoDetail from "./EstadoDetail";
 import Switch from "../DS/Switch";
 
+import useWindowSize from "@hooks/useWindowSize";
+
 export default function Map() {
   const [worldScope, worldScopeChange] = useState(false);
   const [overredState, overredStateChange] = useState(null);
@@ -16,6 +18,8 @@ export default function Map() {
     name: "",
     state_code: null,
   });
+
+  const { width } = useWindowSize();
 
   const { error, data } = useQuery(ESTADOS);
 
@@ -30,11 +34,17 @@ export default function Map() {
 
   return (
     <Wrapper>
+      <SwitchWrapper>
+        <Switch value={worldScope} valueChange={worldScopeChange} />
+      </SwitchWrapper>
       <MapContainer
         center={[23.634501, -102.552784]}
-        zoom={5}
         scrollWheelZoom={false}
-        style={{ width: "60%", height: "500px", minWidth: 760, zIndex: 1 }}
+        style={{
+          width: width > 680 ? "60%" : "100%",
+          height: width > 680 ? "500px" : "300px" /* , minWidth: 760 */,
+          zIndex: 1,
+        }}
       >
         <MapContent
           worldScope={worldScope}
@@ -43,11 +53,9 @@ export default function Map() {
           overredState={overredState}
           overredStateChange={overredStateChange}
           estados={data.estados}
+          width={width}
         />
         <OveredState>{overredState}</OveredState>
-        <SwitchWrapper>
-          <Switch value={worldScope} valueChange={worldScopeChange} />
-        </SwitchWrapper>
       </MapContainer>
       <EstadoDetail currentState={currentState} />
     </Wrapper>
@@ -59,6 +67,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  @media (max-width: 680px) {
+    flex-direction: column;
+    margin-top: 30px;
+  }
 `;
 
 const OveredState = styled.div`
@@ -72,7 +84,7 @@ const OveredState = styled.div`
 const SwitchWrapper = styled.div`
   margin-bottom: 12px;
   position: absolute;
-  z-index: 200;
+  z-index: 6;
   top: 45px;
   right: 20px;
 `;

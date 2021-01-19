@@ -37,20 +37,19 @@ export default function Insect({
   );
 }
 
-const Wrapper = styled.div`
-  padding: 8px;
+const Wrapper = styled.li`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
-  width: 90%;
-  cursor: pointer;
   position: relative;
-  margin-bottom: 12px;
+  padding: 8px;
+  margin-bottom: 8px;
+  width: calc(100% - 18px);
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
   }
+  //display: none;
 `;
 
 const Name = styled.div`

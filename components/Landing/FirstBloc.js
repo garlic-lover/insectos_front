@@ -78,6 +78,6 @@ const Chapulines = styled.img`
   border-radius: 6px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   @media (max-width: 680px) {
-    max-width: 84%;
+    max-width: 94%;
   }
 `;
