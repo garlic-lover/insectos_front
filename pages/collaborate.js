@@ -152,5 +152,6 @@ const TypeformWrapper = styled.div`
   max-width: 600px;
   margin: auto;
   margin-top: 40px;
-  height: 540px;
+  height: 550px;
+  margin-bottom: 30px;
 `;

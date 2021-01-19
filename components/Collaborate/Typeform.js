@@ -23,6 +23,6 @@ export default function TypeForm({ init }) {
   }, [typeformRef]);
 
   return (
-    <div ref={typeformRef} style={{ height: "500px", width: "100%" }}></div>
+    <div ref={typeformRef} style={{ height: "550px", width: "100%" }}></div>
   );
 }

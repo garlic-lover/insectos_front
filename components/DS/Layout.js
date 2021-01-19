@@ -24,7 +24,7 @@ export default function Layout({ children }) {
       const scroll = new LocomotiveScroll({
         el: document.querySelector("[data-scroll-container]"),
         smooth: true,
-        multiplier: 0.6,
+        multiplier: 0.7,
       });
       dispatch({ type: "theScrollChange", theScroll: scroll });
     }
