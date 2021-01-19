@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 function Objectives({ t }) {
@@ -26,22 +26,8 @@ function AboutUs() {
   );
 }
 
-import useAppContext from "@hooks/useAppContext";
-
 export default function SecondBloc({ t }) {
   const [page, pageChange] = useState(0);
-
-  const {
-    state: { theScroll },
-  } = useAppContext();
-
-  useEffect(() => {
-    if (theScroll) {
-      setTimeout(() => {
-        theScroll.update();
-      }, 500);
-    }
-  }, [theScroll]);
 
   return (
     <Wrapper

@@ -5,7 +5,11 @@ import FirstBloc from "./FirstBloc";
 import SecondBloc from "./SecondBloc";
 import ThirdBloc from "./ThirdBloc";
 
+import useRefreshScroll from "@hooks/useRefreshScroll";
+
 export default function Container({ t }) {
+  useRefreshScroll();
+
   return (
     <Wrapper>
       <FirstBloc t={t} />
