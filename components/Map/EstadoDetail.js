@@ -69,7 +69,7 @@ function Content({ currentState: { state_name, state_code } }) {
 const Wrapper = styled.div`
   width: calc(38% - 24px);
   // border: solid 1px #dddddd;
-  padding-top: 24px;
+  padding-top: 12px;
   padding-left: 24px;
   height: 454px;
   padding-bottom: 20px;
@@ -91,7 +91,6 @@ const Wrapper = styled.div`
     height: inherit;
     display: flex;
     flex-direction: column;
-    // align-items: center;
   }
 `;
 
@@ -103,7 +102,10 @@ const List = styled.ul`
   margin-bottom: 24px;
   width: 100%;
   padding: 0;
-  max-height: 80vh;
+  max-height: 370px;
   overflow-y: scroll;
   overflow-x: visible;
+  @media (max-width: 680px) {
+    max-height: 80vh;
+  }
 `;

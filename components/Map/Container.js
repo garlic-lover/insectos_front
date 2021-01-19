@@ -85,8 +85,13 @@ const SwitchWrapper = styled.div`
   margin-bottom: 12px;
   position: absolute;
   z-index: 6;
-  top: 45px;
-  right: 20px;
+  bottom: 10px;
+  left: 20px;
+  @media (max-width: 680px) {
+    top: 20px;
+    left: inherit;
+    right: 20px;
+  }
 `;
 
 /*  <TileLayer
