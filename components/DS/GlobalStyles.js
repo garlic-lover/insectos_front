@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight : 200;
     color : ${(props) => props.theme.main};
     overflow-x: hidden !important;
+    overflow : ${(props) => (props.menuOpened ? "hidden" : "auto")};
     }
     h1, h2, h3, h4, h5, h6{
         font-family: Montserrat;    

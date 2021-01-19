@@ -9,10 +9,16 @@ import GlobalStyles from "./GlobalStyles";
 
 import theme from "./theme.json";
 
+import useAppContext from "@hooks/useAppContext";
+
 export default function Layout({ children }) {
   const [theScroll, theScrollChange] = useState(null);
 
   const router = useRouter();
+
+  const {
+    state: { menuOpened },
+  } = useAppContext();
 
   useEffect(() => {
     if (!theScroll) {
@@ -34,7 +40,7 @@ export default function Layout({ children }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <GlobalStyles menuOpened={menuOpened} />
       <Main data-scroll-container>
         <Header />
         <Container>{children}</Container>
@@ -51,6 +57,6 @@ const Container = styled.div`
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {
-    margin-top: 30px;
+    margin-top: 70px;
   }
 `;

@@ -21,7 +21,7 @@ const MenuIcon = styled.div`
   top: 2px;
   right: 3px;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 11;
   -webkit-user-select: none;
   user-select: none;
   & input {
@@ -47,7 +47,8 @@ const Line = styled.span`
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: ${(props) => props.theme.main};
+  background: ${(props) =>
+    props.opened ? props.theme.background : props.theme.main};
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;

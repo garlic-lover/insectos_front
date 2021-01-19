@@ -20,7 +20,8 @@ const Container = styled.div`
   & h2 {
     font-size: 2rem;
   }
-  min-height: 80vh;
+  // min-height: 80vh;
+  // border: solid 1px white;
 `;
 
 const CardsWrapper = styled.div`

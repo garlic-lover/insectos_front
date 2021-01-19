@@ -4,7 +4,7 @@ import { store } from "../store";
 
 export default function useTranslate() {
   const {
-    state: { t, lang, languageSwitchOpened },
+    state: { t, lang },
     dispatch,
   } = useContext(store);
 
@@ -12,18 +12,9 @@ export default function useTranslate() {
     dispatch({ type: "langChange", lang });
   }
 
-  function languageSwitchOpenedChange(isOpened) {
-    dispatch({
-      type: "languageSwitchOpenedChange",
-      languageSwitchOpened: isOpened,
-    });
-  }
-
   return {
     t,
     lang,
     languageSwitch,
-    languageSwitchOpened,
-    languageSwitchOpenedChange,
   };
 }

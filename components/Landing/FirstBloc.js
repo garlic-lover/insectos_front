@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   }
   @media (max-width: 680px) {
     flex-direction : column;
-    margin-top : 0px;
+    margin-top : 20px;
     margin-bottom : 40px;
     & div{
       width : 100%
@@ -78,6 +78,6 @@ const Chapulines = styled.img`
   border-radius: 6px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   @media (max-width: 680px) {
-    max-width: 100%;
+    max-width: 84%;
   }
 `;

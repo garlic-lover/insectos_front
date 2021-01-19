@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import useTranslate from "../../hooks/useTranslate";
@@ -6,12 +6,8 @@ import useTranslate from "../../hooks/useTranslate";
 const theLanguages = { fr: "Français", en: "English", es: "Español" };
 
 export default function LanguageSwitch() {
-  const {
-    lang,
-    languageSwitch,
-    languageSwitchOpened,
-    languageSwitchOpenedChange,
-  } = useTranslate();
+  const [languageSwitchOpened, languageSwitchOpenedChange] = useState(false);
+  const { lang, languageSwitch } = useTranslate();
 
   const handleLeave = () => {
     languageSwitchOpenedChange(false);
@@ -46,6 +42,7 @@ export default function LanguageSwitch() {
                 key={index}
                 onClick={() => {
                   languageSwitch(theLang);
+                  languageSwitchOpenedChange(false);
                 }}
               >
                 {theLanguages[theLang]}
@@ -83,5 +80,19 @@ const Wrapper = styled.div`
   & li {
     margin-top: 10px;
     cursor: pointer;
+  }
+  @media (max-width: 680px) {
+    margin-left: 0px;
+    font-size: 20px;
+    & img {
+      filter: brightness(0) saturate(100%) invert(85%) sepia(19%) saturate(407%)
+        hue-rotate(5deg) brightness(91%) contrast(92%);
+    }
+    & ul {
+      left: 0;
+    }
+    & li {
+      margin-top: 18px;
+    }
   }
 `;

@@ -34,7 +34,6 @@ export default function Deck() {
 
   const bind = useDrag(
     ({ args: [index], down, delta: [xDelta], direction: [xDir], velocity }) => {
-      console.log(xDelta);
       const trigger = velocity > 0.2; // If you flick hard enough it should trigger the card to fly out
       const dir = xDir < 0 ? -1 : 1; // Direction should either point left or right
       if (!down && trigger) {
