@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSprings, animated, interpolate } from "react-spring";
+import { useSprings } from "react-spring";
 import styled from "styled-components";
 
 import { useDrag } from "react-use-gesture";
@@ -15,30 +15,17 @@ const backgroundColors = [
   "#a35638",
 ];
 
-const testCards = [
-  {
-    title: "Fact 4",
-    subTitle: "Insects contain a complete/whole protein",
-    color: "#aee6e6",
-  },
-  {
-    title: "Fact 3",
-    subTitle: "Insects contain a complete/whole protein",
-    color: "#aee6e6",
-  },
-  { title: "Fact 2", subTitle: "They contain dietary fibre", color: "#ffda77" },
-  {
-    title: "Fact 1",
-    subTitle: "Insects provide unsaturated fat and low-fat content",
-    color: "#ffa45b",
-  },
-];
+const langageRanges = {
+  es: { start: 1, end: 2 },
+  fr: { start: 3, end: 4 },
+  en: { start: 5, end: 6 },
+};
 
-export default function Deck() {
-  const [currentCard, currentCardChange] = useState(testCards.length - 1);
+export default function Deck({ facts, t, lang }) {
+  const [currentCard, currentCardChange] = useState(facts.length - 1);
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
 
-  const [cards, set] = useSprings(testCards.length, (index) => ({
+  const [cards, set] = useSprings(facts.length, (index) => ({
     ...to(index),
     from: from(index),
     // config: { friction: 1 },
@@ -68,7 +55,7 @@ export default function Deck() {
       });
       if (!down && gone.size === cards.length) {
         setTimeout(() => gone.clear() || set((i) => to(i)), 600);
-        currentCardChange(testCards.length - 1);
+        currentCardChange(facts.length - 1);
       }
     }
   );
@@ -76,16 +63,15 @@ export default function Deck() {
   return (
     <Wrapper>
       {cards.map((props, i) => {
-        const { title, subTitle, color } = testCards[i];
         return (
           <SimpleCard
             key={i}
             i={i}
             isTop={currentCard === i}
             style={props}
-            title={title}
-            subTitle={subTitle}
-            backgroundColor={backgroundColors[i % 4]}
+            title={facts[i][langageRanges[lang].start]}
+            subTitle={facts[i][langageRanges[lang].end]}
+            backColor={backgroundColors[i % 4]}
             color={
               backgroundColors[i % 4] === "#a35638" ? "#d7c79e" : "#a35638"
             }

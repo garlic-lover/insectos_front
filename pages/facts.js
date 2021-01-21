@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import useTranslate from "../hooks/useTranslate";
 
 import styled from "styled-components";
@@ -5,12 +6,23 @@ import styled from "styled-components";
 import Deck from "../components/Cards/Deck";
 
 export default function Home() {
-  const { t } = useTranslate();
+  const [page, pageChange] = useState(0);
+  const [facts, factsChange] = useState([]);
+  const { t, lang } = useTranslate();
+
+  useEffect(async () => {
+    // Fetch the facts from google sheet
+
+    let { values } = await fetch(`/api/sheetsFetch`).then((theRes) =>
+      theRes.json()
+    );
+    factsChange(values);
+  }, []);
 
   return (
     <Container>
       <CardsWrapper>
-        <Deck />
+        <Deck facts={facts} t={t} lang={lang} />
       </CardsWrapper>
     </Container>
   );

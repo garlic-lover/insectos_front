@@ -9,7 +9,7 @@ export default function SimpleCard({
   isTop,
   title,
   subTitle,
-  backgroundColor,
+  backColor,
   color,
   style,
   bind,
@@ -30,7 +30,7 @@ export default function SimpleCard({
         style={{
           transform: interpolate([rot, scale], trans),
         }}
-        backgroundColor={backgroundColor}
+        color2={backColor}
         color={color}
         isontop={isTop ? "true" : "false"}
       >
@@ -59,7 +59,7 @@ const Card = styled(animated.div)`
   height: 300px;
   width: 220px;
   border-radius: 14px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.color2};
   color: ${(props) => props.color};
   display: flex;
   flex-direction: column;

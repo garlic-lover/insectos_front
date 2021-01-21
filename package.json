@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
+    "@typeform/embed": "^0.31.1",
     "graphql": "^15.3.0",
     "leaflet": "^1.7.1",
     "locomotive-scroll": "^4.0.6",
@@ -18,8 +19,7 @@
     "react-leaflet": "^3.0.2",
     "react-spring": "^8.0.27",
     "react-use-gesture": "^8.0.1",
-    "styled-components": "latest",
-    "@typeform/embed": "^0.31.1"
+    "styled-components": "latest"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
