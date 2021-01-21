@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSprings } from "react-spring";
 import styled from "styled-components";
 
@@ -9,10 +9,10 @@ import { to, from } from "./positionFunctions";
 import SimpleCard from "./SimpleCard";
 
 const backgroundColors = [
-  "rgba(121, 147, 82)",
-  "#d7c79e",
   "#9dab86",
   "#a35638",
+  "rgba(121, 147, 82)",
+  "#d7c79e",
 ];
 
 const langageRanges = {
@@ -21,7 +21,7 @@ const langageRanges = {
   en: { start: 5, end: 6 },
 };
 
-export default function Deck({ facts, t, lang }) {
+export default function Deck({ facts, t, lang, loadMore }) {
   const [currentCard, currentCardChange] = useState(facts.length - 1);
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
 
@@ -30,6 +30,10 @@ export default function Deck({ facts, t, lang }) {
     from: from(index),
     // config: { friction: 1 },
   }));
+
+  useEffect(() => {
+    set((i) => to(i));
+  }, [facts]);
 
   const bind = useDrag(
     ({ args: [index], down, delta: [xDelta], direction: [xDir], velocity }) => {
@@ -54,7 +58,10 @@ export default function Deck({ facts, t, lang }) {
         };
       });
       if (!down && gone.size === cards.length) {
-        setTimeout(() => gone.clear() || set((i) => to(i)), 600);
+        setTimeout(async () => {
+          loadMore();
+          gone.clear();
+        }, 200);
         currentCardChange(facts.length - 1);
       }
     }

@@ -12,17 +12,28 @@ export default function Home() {
 
   useEffect(async () => {
     // Fetch the facts from google sheet
-
-    let { values } = await fetch(`/api/sheetsFetch`).then((theRes) =>
-      theRes.json()
-    );
-    factsChange(values);
-  }, []);
+    let { values, success } = await fetch(
+      `/api/sheetsFetch?page=${page}`
+    ).then((theRes) => theRes.json());
+    if (values.length) {
+      factsChange(values);
+    } else if (success) {
+      // Resets the deck if no error but no values
+      pageChange(0);
+    }
+  }, [page]);
 
   return (
     <Container>
       <CardsWrapper>
-        <Deck facts={facts} t={t} lang={lang} />
+        <Deck
+          facts={facts}
+          t={t}
+          lang={lang}
+          loadMore={() => {
+            pageChange(page + 1);
+          }}
+        />
       </CardsWrapper>
     </Container>
   );
