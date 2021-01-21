@@ -9,8 +9,8 @@ import { to, from } from "./positionFunctions";
 import SimpleCard from "./SimpleCard";
 
 const backgroundColors = [
-  "#d7c79e",
   "rgba(121, 147, 82)",
+  "#d7c79e",
   "#9dab86",
   "#a35638",
 ];
@@ -71,11 +71,13 @@ export default function Deck({ facts, t, lang }) {
             style={props}
             title={facts[i][langageRanges[lang].start]}
             subTitle={facts[i][langageRanges[lang].end]}
+            source={facts[i][0]}
             backColor={backgroundColors[i % 4]}
             color={
               backgroundColors[i % 4] === "#a35638" ? "#d7c79e" : "#a35638"
             }
             bind={bind}
+            t={t}
           />
         );
       })}

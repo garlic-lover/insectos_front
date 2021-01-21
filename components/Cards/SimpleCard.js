@@ -9,10 +9,12 @@ export default function SimpleCard({
   isTop,
   title,
   subTitle,
+  source,
   backColor,
   color,
   style,
   bind,
+  t,
 }) {
   const { x, y, rot, scale } = style;
 
@@ -36,6 +38,9 @@ export default function SimpleCard({
       >
         <h2>{title}</h2>
         <p>{subTitle}</p>
+        <Source title={source}>
+          {t("source")} : {source}
+        </Source>
       </Card>
     </Wrapper>
   );
@@ -79,4 +84,15 @@ const Card = styled(animated.div)`
     line-height: 1.5rem;
     //  text-align: center;
   }
+`;
+
+const Source = styled.p`
+  font-size: 10px;
+  position: absolute;
+  bottom: 6px;
+  width: calc(100% - 40px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: help;
 `;
