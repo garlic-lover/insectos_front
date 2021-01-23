@@ -7,11 +7,17 @@ import Header from "../Header/Header";
 import Footer from "../Footer";
 import GlobalStyles from "./GlobalStyles";
 
-import theme from "./theme.json";
+// import theme from "./theme.json";
 
 import useAppContext from "@hooks/useAppContext";
 
 export default function Layout({ children }) {
+  const [theme, themeChange] = useState({
+    background: "#d7c79e",
+    main: "#a35638",
+    color2: "rgba(121, 147, 82, 0.4)",
+    color3: "#9dab86",
+  });
   const router = useRouter();
 
   const {
@@ -45,6 +51,52 @@ export default function Layout({ children }) {
         <Container>{children}</Container>
         <Footer />
       </Main>
+      <ColorChanger>
+        <div>
+          <h5>Background : </h5>
+          <input
+            value={theme.background}
+            onChange={(ev) => {
+              let theTheme = { ...theme };
+              theTheme.background = ev.target.value;
+              themeChange(theTheme);
+            }}
+          />
+        </div>
+        <div>
+          <h5>Main : </h5>
+          <input
+            value={theme.main}
+            onChange={(ev) => {
+              let theTheme = { ...theme };
+              theTheme.main = ev.target.value;
+              themeChange(theTheme);
+            }}
+          />
+        </div>
+        <div>
+          <h5>Color 2 : </h5>
+          <input
+            value={theme.color2}
+            onChange={(ev) => {
+              let theTheme = { ...theme };
+              theTheme.color2 = ev.target.value;
+              themeChange(theTheme);
+            }}
+          />
+        </div>
+        <div>
+          <h5>Color 3 : </h5>
+          <input
+            value={theme.color3}
+            onChange={(ev) => {
+              let theTheme = { ...theme };
+              theTheme.color3 = ev.target.value;
+              themeChange(theTheme);
+            }}
+          />
+        </div>
+      </ColorChanger>
     </ThemeProvider>
   );
 }
@@ -57,5 +109,20 @@ const Container = styled.div`
   overflow-x: hidden !important;
   @media (max-width: 680px) {
     margin-top: 70px;
+  }
+`;
+
+const ColorChanger = styled.div`
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  & div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  & h5 {
+    margin-right: 6px;
+    width: 120px;
   }
 `;
