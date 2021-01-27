@@ -22,6 +22,13 @@ const GlobalStyles = createGlobalStyle`
         border-radius : 4px;
         cursor : pointer;
     }
+    input, textarea{
+        color : ${(props) => props.theme.main};
+        background-color : inherit;
+        border : solid 1px ${(props) => props.theme.main};
+        border-radius : 7px;
+        padding : 12px;
+    }
  `;
 
 export default GlobalStyles;
