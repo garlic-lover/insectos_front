@@ -20,5 +20,5 @@ const Wrapper = styled.div`
   width: 94%;
   max-width: 1040px;
   margin: auto;
-  min-height: 500px;
+  min-height: 550px;
 `;
