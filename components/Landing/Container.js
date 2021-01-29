@@ -27,7 +27,13 @@ export default function Container({ t }) {
         />
       </Chapulines>
       <Title data-scroll data-scroll-speed="-5">
-        {t("homeTitle")}
+        <div>
+          <span className="lnr lnr-bug" />
+        </div>
+        <h2>{t("homeTitle")} </h2>
+        <div>
+          <span className="lnr lnr-bug" />
+        </div>
       </Title>
       <BlocsWrapper>
         <FirstBloc t={t} />
@@ -84,7 +90,7 @@ const Chapulines = styled.div`
   }
 `;
 
-const Title = styled.h2`
+const Title = styled.div`
   position: absolute;
   top: 50vh;
   transform: translateY(-50%);
@@ -94,6 +100,35 @@ const Title = styled.h2`
   text-align: center;
   z-index: 3;
   text-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & h2 {
+    //border-top: solid 2px;
+    //border-bottom: solid 2px;
+    // padding: 40px 0;
+  }
+  & div {
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  & div:first-child {
+    margin-right: 12px;
+  }
+  & div:last-child {
+    margin-left: 12px;
+  }
+  & div:first-child span {
+    position: absolute;
+    left: 0;
+    transform: rotate(90deg);
+  }
+  & div:last-child span {
+    position: absolute;
+    left: 0;
+    transform: rotate(-90deg);
+  }
   @media (max-width: 680px) {
     font-size: 2.2rem;
     line-height: 3rem;

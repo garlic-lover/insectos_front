@@ -88,17 +88,3 @@ const Wrapper = styled.div`
     }
   }
 `;
-
-const Chapulines = styled.img`
-  width: auto;
-  max-width: 60%;
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
-  position: relative;
-  transform: translateX(10%);
-  @media (max-width: 680px) {
-    max-width: 94%;
-    transform: translateX(0%);
-  }
-`;
