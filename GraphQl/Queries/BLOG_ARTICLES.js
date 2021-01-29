@@ -8,19 +8,6 @@ const BLOG_ARTICLES = gql`
       shortDescription
       authorName
       lang
-      data {
-        blocks {
-          type
-          data {
-            level
-            text
-            items
-            style
-          }
-        }
-        version
-        time
-      }
     }
   }
 `;

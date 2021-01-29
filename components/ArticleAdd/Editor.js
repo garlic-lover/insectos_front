@@ -9,6 +9,8 @@ import { useMutation } from "@apollo/client";
 
 import BLOG_ARTICLE_ADD from "@GraphQl/Mutations/BLOG_ARTICLE_ADD";
 
+import useAppContext from "@hooks/useAppContext";
+
 export default function Editor() {
   const [title, titleChange] = useState("");
   const [shortDescription, shortDescriptionChange] = useState("");
@@ -30,6 +32,10 @@ export default function Editor() {
     },
   });
 
+  const {
+    state: { theScroll },
+  } = useAppContext();
+
   useEffect(() => {
     if (!theEditor) {
       const editor = new EditorJS({
@@ -44,6 +50,9 @@ export default function Editor() {
             class: List,
             inlineToolbar: true,
           },
+        },
+        onReady: () => {
+          theScroll.update();
         },
       });
       theEditorChange(editor);
@@ -122,7 +131,6 @@ const Wrapper = styled.div`
   max-width: 640px;
   margin: auto;
   margin-bottom: 24px;
-  max-height: 400px;
   & button {
     position: relative;
     left: 100%;

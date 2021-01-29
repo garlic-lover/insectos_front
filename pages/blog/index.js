@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ import BLOG_ARTICLES from "@GraphQl/Queries/BLOG_ARTICLES";
 import useAppContext from "@hooks/useAppContext";
 
 export default function Blog() {
+  const router = useRouter();
   const { data } = useQuery(BLOG_ARTICLES);
 
   const {
@@ -31,7 +33,12 @@ export default function Blog() {
         {data.blogArticles.map(
           ({ title, shortDescription, authorName }, index) => {
             return (
-              <Article key={index}>
+              <Article
+                key={index}
+                onClick={() => {
+                  router.push(`/blog/${title}`);
+                }}
+              >
                 <h3>{title}</h3>
                 <p>{shortDescription}</p>
               </Article>
@@ -63,7 +70,7 @@ const Wrapper = styled.div`
   }
   @media (max-width: 1000px) {
     & ul {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-column-gap: 20px;
     }
   }
