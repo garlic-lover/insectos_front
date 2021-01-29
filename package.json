@@ -13,6 +13,7 @@
     "@editorjs/header": "^2.6.1",
     "@editorjs/list": "^1.6.1",
     "@typeform/embed": "^0.31.1",
+    "@vx/network": "0.0.199",
     "graphql": "^15.3.0",
     "leaflet": "^1.7.1",
     "locomotive-scroll": "^4.0.6",

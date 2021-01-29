@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import useTranslate from "../../hooks/useTranslate";
 
-const theLanguages = { fr: "Français", en: "English", es: "Español" };
+const theLanguages = { fr: "FR", en: "EN", es: "ES" };
 
 export default function LanguageSwitch() {
   const [languageSwitchOpened, languageSwitchOpenedChange] = useState(false);
@@ -59,6 +59,7 @@ const Wrapper = styled.div`
   display: flex;
   margin-left: 6px;
   font-size: 18px;
+  letter-spacing: 4px;
   position: relative;
   user-select: none;
   & p {

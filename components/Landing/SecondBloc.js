@@ -103,6 +103,7 @@ const Main = styled.div`
 
 const Title = styled.h3`
   font-size: 40px;
+  font-weight: 200;
   margin-bottom: 6px;
   color: ${(props) => ""};
   text-align: center;

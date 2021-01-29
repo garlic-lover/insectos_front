@@ -31,6 +31,5 @@ const Wrapper = styled.div`
     border-radius: 50px;
     font-size: 12px;
   }
-  margin-bottom: 60px;
-  margin-top: 40px;
+  background-color: ${(props) => props.theme.background};
 `;

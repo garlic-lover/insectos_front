@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     h1, h2, h3, h4, h5, h6{
         font-family: Montserrat;    
         font-weight : 800;
+        letter-spacing: 4px
     }
     button {
         padding : 10px;
@@ -22,12 +23,15 @@ const GlobalStyles = createGlobalStyle`
         border-radius : 4px;
         cursor : pointer;
     }
-    input, textarea{
+    input, textarea, select{
         color : ${(props) => props.theme.main};
         background-color : inherit;
         border : solid 1px ${(props) => props.theme.main};
         border-radius : 7px;
         padding : 12px;
+    }
+    & select{
+        padding : 3px
     }
  `;
 

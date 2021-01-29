@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <>
-      <Container>
+      <Container data-scroll data-scroll-sticky data-scroll-target="#stick">
         <section>
           <Link href="/">
             <h1>INSECTIVORA</h1>
@@ -75,11 +75,17 @@ export default function Header() {
 }
 
 const Container = styled.header`
+  background-color: ${(props) => props.theme.background};
+  box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
   & section {
     position: relative;
     width: 94%;
@@ -93,6 +99,8 @@ const Container = styled.header`
     left: 0;
     font-size: 2rem;
     cursor: pointer;
+    letter-spacing: 8px;
+    font-weight: 200;
   }
   @media (max-width: 680px) {
     box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
@@ -118,6 +126,7 @@ const Menu = styled.div`
     text-decoration: inherit;
     margin-left: 12px;
     font-size: 18px;
+    letter-spacing: 4px;
   }
   & a:first:child {
     margin-left: 0;

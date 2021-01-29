@@ -67,6 +67,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  margin-top: 30px;
   @media (max-width: 680px) {
     flex-direction: column;
     margin-top: 30px;

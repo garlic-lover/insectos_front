@@ -87,7 +87,7 @@ function ThemeChanger({ theme, themeChange }) {
 
 export default function Layout({ children }) {
   const [theme, themeChange] = useState({
-    background: "#d7c79e",
+    background: "rgb(242, 237, 227)",
     main: "#a35638",
     color2: "rgba(121, 147, 82, 0.4)",
     color3: "#9dab86",
@@ -120,7 +120,7 @@ export default function Layout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles menuOpened={menuOpened} />
-      <Main data-scroll-container>
+      <Main data-scroll-container id="stick">
         <Header />
         <Container>{children}</Container>
         <Footer />
@@ -133,11 +133,11 @@ export default function Layout({ children }) {
 const Main = styled.div``;
 
 const Container = styled.div`
-  margin-top: 20px;
+  padding-top: 90px;
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {
-    margin-top: 70px;
+    padding-top: 70px;
   }
 `;
 

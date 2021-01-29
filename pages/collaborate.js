@@ -103,6 +103,7 @@ const Wrapper = styled.div`
   max-width: 1040px;
   margin: auto;
   text-align: center;
+  margin-top: 70px;
   & h2 {
     font-size: 2rem;
     margin-bottom: 24px;
