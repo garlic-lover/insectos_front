@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import dynamic from "next/dynamic";
 
-const Article = dynamic(() => import("../components/Blog/Article"), {
+const Article = dynamic(() => import("../../components/Blog/Article"), {
   ssr: false,
 });
 
