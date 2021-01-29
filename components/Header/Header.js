@@ -85,7 +85,6 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-
   & section {
     position: relative;
     width: 94%;

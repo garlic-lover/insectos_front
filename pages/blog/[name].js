@@ -6,7 +6,7 @@ const Article = dynamic(() => import("../../components/Blog/Article"), {
   ssr: false,
 });
 
-export default function ({ article }) {
+export default function BlogArticle({ article }) {
   return (
     <Wrapper>
       <Article data={article} />

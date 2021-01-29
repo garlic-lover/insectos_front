@@ -87,7 +87,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 100px;
   padding-bottom: 60px;
   @media (max-width: 680px) {
     padding-top: 30px;

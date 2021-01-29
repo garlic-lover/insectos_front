@@ -1,13 +1,6 @@
 import Head from "next/head";
 import useTranslate from "../hooks/useTranslate";
 
-import styled from "styled-components";
-
-/* import dynamic from "next/dynamic";
-const Container = dynamic(() => import("../components/Landing/Container"), {
-  ssr: false,
-}); */
-
 import Container from "../components/Landing/Container";
 
 export default function Home() {
@@ -27,14 +20,3 @@ export default function Home() {
     </>
   );
 }
-
-const Chapulines = styled.div`
-  width: 100vw;
-  height: calc(100vh - 90px);
-  background-image: url("/images/chapulines.jpg");
-  background-size: cover;
-  background-opacity: 0.5;
-  opacity: 0.5;
-  position: relative;
-  z-index: -1;
-`;
