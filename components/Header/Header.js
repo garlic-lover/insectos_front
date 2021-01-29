@@ -105,10 +105,7 @@ const Container = styled.header`
   @media (max-width: 680px) {
     box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
     background-color: ${(props) => props.theme.background};
     height: 70px;
     & h1 {

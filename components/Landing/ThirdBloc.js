@@ -6,30 +6,40 @@ export default function ThirdBloc() {
 
   return (
     <Wrapper>
-      <Title>Quien somos ?</Title>
-      <p>
-        Aliquip fugiat consequat do cupidatat sint. Non cupidatat consequat
-        culpa dolor nostrud quis in enim deserunt nostrud veniam Lorem. Est
-        fugiat elit velit sunt. Sint qui velit nulla ea cupidatat.
-      </p>
-      <button
-        onClick={() => {
-          router.push("/collaborate");
-        }}
-      >
-        Want to join ?
-      </button>
+      <section>
+        <Title className="hidden" data-scroll data-scroll-class="appear">
+          Quien somos ?
+        </Title>
+        <p className="hidden" data-scroll data-scroll-class="appear">
+          Aliquip fugiat consequat do cupidatat sint. Non cupidatat consequat
+          culpa dolor nostrud quis in enim deserunt nostrud veniam Lorem. Est
+          fugiat elit velit sunt. Sint qui velit nulla ea cupidatat.
+        </p>
+        <button
+          onClick={() => {
+            router.push("/collaborate");
+          }}
+          className="hidden"
+          data-scroll
+          data-scroll-class="appear"
+        >
+          Want to join ?
+        </button>
+      </section>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  width: 94%;
-  max-width: 1040px;
-  margin: auto;
-  text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  & section {
+    width: 94%;
+    max-width: 1040px;
+    margin: auto;
+    margin-bottom: 0;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
   & p {
     width: 80%;
     margin-bottom: 40px;

@@ -7,8 +7,6 @@ import Header from "../Header/Header";
 import Footer from "../Footer";
 import GlobalStyles from "./GlobalStyles";
 
-// import theme from "./theme.json";
-
 import useAppContext from "@hooks/useAppContext";
 
 function ThemeChanger({ theme, themeChange }) {
@@ -120,9 +118,9 @@ export default function Layout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles menuOpened={menuOpened} />
-      <Main data-scroll-container id="stick">
+      <Main data-scroll data-scroll-container id="stick">
         <Header />
-        <Container>{children}</Container>
+        <Container isHomePage={router.pathname === "/"}>{children}</Container>
         <Footer />
       </Main>
       <ThemeChanger theme={theme} themeChange={themeChange} />
@@ -130,14 +128,16 @@ export default function Layout({ children }) {
   );
 }
 
-const Main = styled.div``;
+const Main = styled.div`
+  background-color: ${(props) => props.theme.background};
+`;
 
 const Container = styled.div`
-  padding-top: 90px;
+  padding-top: ${(props) => (props.isHomePage ? "" : "90px")};
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {
-    padding-top: 70px;
+    padding-top: ${(props) => (props.isHomePage ? "" : "70px")};
   }
 `;
 

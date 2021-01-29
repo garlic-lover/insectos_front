@@ -23,7 +23,6 @@ export default function Home() {
         />
         <title>{t("homeTitle")}</title>
       </Head>
-      <Chapulines data-scroll data-scroll-sticky data-scroll-target="#stick" />
       <Container t={t} />
     </>
   );

@@ -38,7 +38,7 @@ export default function SecondBloc({ t }) {
     >
       <Main>
         <Title
-          className="hiddenSlow"
+          className="hidden"
           data-scroll
           data-scroll-class="appear"
           /* data-scroll-sticky
@@ -46,11 +46,11 @@ export default function SecondBloc({ t }) {
         >
           Insectivora, que es ?
         </Title>
-        <SubTitle>
+        <SubTitle className="hidden" data-scroll data-scroll-class="appear">
           What are our objectives with the insectivora project
         </SubTitle>
         <Grid>
-          <div>
+          <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>Hey, idea 1</h4>
             <p>
               Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
@@ -59,7 +59,7 @@ export default function SecondBloc({ t }) {
               pariatur proident enim ex quis eiusmod officia.
             </p>
           </div>
-          <div>
+          <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>Hey, idea 2</h4>
             <p>
               Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
@@ -68,7 +68,7 @@ export default function SecondBloc({ t }) {
               pariatur proident enim ex quis eiusmod officia.
             </p>
           </div>
-          <div>
+          <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>Hey, idea 3</h4>
             <p>
               Laboris id eiusmod laboris ut nulla dolor ullamco labore non est
