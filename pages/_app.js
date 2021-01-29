@@ -12,6 +12,7 @@ import "../styles/globals.css";
 import "../styles/locomotive.css";
 import "../styles/icomoon.css";
 import "../styles/linear_icons.css";
+import "../styles/loader.css";
 
 function MyApp({ Component, pageProps }) {
   return (

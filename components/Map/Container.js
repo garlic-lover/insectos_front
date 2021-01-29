@@ -8,6 +8,7 @@ import ESTADOS from "../../GraphQl/Queries/ESTADOS";
 import MapContent from "./MapContent";
 import EstadoDetail from "./EstadoDetail";
 import Switch from "../DS/Switch";
+import Loader from "../DS/Loader";
 
 import useWindowSize from "@hooks/useWindowSize";
 
@@ -21,15 +22,14 @@ export default function Map() {
 
   const { width } = useWindowSize();
 
-  const { error, data } = useQuery(ESTADOS);
+  const { loading, error, data } = useQuery(ESTADOS);
 
   if (error) {
     console.log(error);
     return null;
   }
-
-  if (!data) {
-    return "Loading...";
+  if (loading) {
+    return <Loader />;
   }
 
   return (
