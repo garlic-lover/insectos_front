@@ -31,7 +31,8 @@ export default function SecondBloc({ t }) {
 
   return (
     <Wrapper
-    /*  id="stick"
+      id="about"
+      /*  id="stick"
       className="hiddenSlow"
       data-scroll
       data-scroll-class="appear" */

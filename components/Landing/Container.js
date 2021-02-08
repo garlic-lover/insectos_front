@@ -21,9 +21,20 @@ export default function Container({ t }) {
   } = useAppContext();
 
   const quizz = document.getElementById("quizzContainer");
+  const about = document.getElementById("about");
 
   function scrollToQuiz() {
-    theScroll.scrollTo(quizz, { offset: -90, duration: 500 });
+    theScroll.scrollTo(quizz, {
+      offset: width > 680 ? -90 : -60,
+      duration: 750,
+    });
+  }
+
+  function scrollToAbout() {
+    theScroll.scrollTo(about, {
+      offset: width > 680 ? -90 : -60,
+      duration: 750,
+    });
   }
 
   return (
@@ -62,7 +73,7 @@ export default function Container({ t }) {
       </Title>
 
       <BlocsWrapper>
-        <FirstBloc t={t} quizRef={quizRef} />
+        <FirstBloc t={t} quizRef={quizRef} scrollToAbout={scrollToAbout} />
         <SecondBloc t={t} />
         <ThirdBloc t={t} />
       </BlocsWrapper>

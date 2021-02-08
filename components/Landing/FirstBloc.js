@@ -2,14 +2,25 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function FirstBloc({ t, quizRef }) {
+export default function FirstBloc({ t, quizRef, scrollToAbout }) {
   const [value, valueChange] = useState(0);
+  const [result, resultChange] = useState(null);
   const router = useRouter();
 
   return (
     <Back id="quizzContainer" ref={quizRef}>
-      <Wrapper>
+      <Wrapper
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (value >= 500) {
+            resultChange("true");
+          } else {
+            resultChange("false");
+          }
+        }}
+      >
         <h2>Una pequena pregunta...</h2>
+        <h4>Cuantas especies de insectos comestibles hay en Mexico ? </h4>
         <NumberInput
           value={value}
           onChange={(e) => {
@@ -21,7 +32,21 @@ export default function FirstBloc({ t, quizRef }) {
           min={0}
         />
         <button>Verificar</button>
+        {result && (
+          <Result result={result}>
+            {result === "true"
+              ? "Exact : il y en a en effet plus de 500"
+              : "Faux ! Il y en a en fait plus de 500 ans !"}
+          </Result>
+        )}
       </Wrapper>
+      <ScrollDown
+        onClick={() => {
+          scrollToAbout();
+        }}
+      >
+        Mas sobre Insectivora <span className="lnr lnr-chevron-down-circle" />
+      </ScrollDown>
     </Back>
   );
 }
@@ -35,13 +60,14 @@ const Back = styled.div`
   color: ${(props) => props.theme.background};
   height: calc(100vh - 90px);
   display: flex;
+  position: relative;
   @media (max-width: 680px) {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   width: 94%;
   max-width: 1040px;
   margin: auto;
@@ -50,22 +76,19 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  & div {
-    width: 40%;
-  }
-  & p {
-    margin-bottom: 6px;
-    opacity: 0.9;
-  }
+  position: relative;
   & h2 {
     font-size: 2rem;
-    margin-bottom: 48px;
-    line-height: 2.6rem;
+    margin-bottom: 28px;
     text-align: center;
+  }
+  & h4 {
+    margin-bottom: 16px;
+    font-size: 1rem;
   }
   & button {
     margin-top: 12px;
-    color: rgb(23, 119, 87);
+    color: rgb(162, 140, 56);
     background-color: white;
     border-color: white;
     padding: 14px 32px;
@@ -98,20 +121,24 @@ const NumberInput = styled.input`
   text-align: center;
 `;
 
-/* 
-  <div>
-          <p>Comer insectos... </p>
-          <h2>{t("homeTitle")}</h2>
-          <p>
-            La comida con insectos será la próxima tendancia en la gastronomia
-            mundial. Y tú, ¿te los imaginas en tu plato?
-          </p>
-          <button
-            onClick={() => {
-              router.push("/facts");
-            }}
-          >
-            Más información
-          </button>
-        </div> 
-*/
+const Result = styled.p`
+  position: absolute;
+  bottom: -50px;
+  transform: translateY(100%);
+  color: ${(props) => (props.result === "true" ? "" : "red")};
+`;
+
+const ScrollDown = styled.p`
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.1rem;
+  cursor: pointer;
+  & span {
+    margin-left: 12px;
+    font-size: 2.4rem;
+    margin-bottom: 3px;
+  }
+`;

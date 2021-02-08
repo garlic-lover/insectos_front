@@ -76,7 +76,7 @@ export default function Header() {
 
 const Container = styled.header`
   background-color: ${(props) => props.theme.background};
-  box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
+  // box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
   height: 90px;
   display: flex;
   align-items: center;
@@ -117,6 +117,7 @@ const Menu = styled.div`
   position: absolute;
   right: 0;
   display: flex;
+  color: rgba(162, 140, 56, 1);
   & a {
     color: inherit;
     text-decoration: inherit;
@@ -136,9 +137,10 @@ const MenuItem = styled.a`
   transition: 0.3s;
   text-decoration: underline;
   cursor: pointer;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
   border-bottom: solid 2.5px
-    ${(props) => (props.isSelected ? props.theme.main : props.theme.background)};
+    ${(props) =>
+      props.isSelected ? "props.theme.main" : props.theme.background};
   &:hover {
     border-bottom: solid 2.5px ${(props) => props.theme.main};
   }

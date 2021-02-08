@@ -69,8 +69,8 @@ const Wrapper = styled.div`
     margin-left: 6px;
     height: 10px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(33%) sepia(69%) saturate(473%)
-      hue-rotate(332deg) brightness(100%) contrast(88%);
+    filter: brightness(0) saturate(100%) invert(50%) sepia(77%) saturate(358%)
+      hue-rotate(10deg) brightness(95%) contrast(83%);
   }
   & ul {
     position: absolute;

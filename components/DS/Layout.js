@@ -131,7 +131,7 @@ export default function Layout({ children }) {
 }
 
 const Main = styled.div`
-  background-color: ${(props) => props.theme.background};
+  background-color: rgb(242, 237, 227);
 `;
 
 const Container = styled.div`
