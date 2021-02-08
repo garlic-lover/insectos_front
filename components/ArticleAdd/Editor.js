@@ -1,6 +1,7 @@
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import List from "@editorjs/list";
+import ImageTool from "@editorjs/image";
 
 import styled from "styled-components";
 
@@ -49,6 +50,14 @@ export default function Editor() {
           list: {
             class: List,
             inlineToolbar: true,
+          },
+          image: {
+            class: ImageTool,
+            config: {
+              endpoints: {
+                byFile: `/api/imageUpload`,
+              },
+            },
           },
         },
         onReady: () => {

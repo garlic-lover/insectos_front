@@ -14,9 +14,12 @@
     "@editorjs/list": "^1.6.1",
     "@typeform/embed": "^0.31.1",
     "@vx/network": "0.0.199",
+    "aws-sdk": "^2.799.0",
+    "formidable": "^1.2.2",
     "graphql": "^15.3.0",
     "leaflet": "^1.7.1",
     "locomotive-scroll": "^4.0.6",
+    "micro": "^9.3.4",
     "next": "10.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -26,6 +29,7 @@
     "styled-components": "latest"
   },
   "devDependencies": {
+    "@editorjs/image": "^2.6.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-styled-components": "latest"
   }
