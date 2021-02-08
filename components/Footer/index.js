@@ -30,7 +30,8 @@ const Wrapper = styled.footer`
   align-items: center;
   position: relative;
   background-color: ${(props) => props.theme.main};
-  background-color: rgba(121, 147, 82, 0.5);
+  color: white;
+  background-color: #a38c38;
 `;
 
 const SocialNetworks = styled.div`

@@ -85,11 +85,13 @@ function ThemeChanger({ theme, themeChange }) {
 
 export default function Layout({ children }) {
   const [theme, themeChange] = useState({
-    background: "rgb(242, 237, 227)",
+    background: "#f6f5f5",
     main: "#a35638",
     color2: "rgba(121, 147, 82, 0.4)",
     color3: "#9dab86",
   });
+
+  // rgb(242, 237, 227)
   const router = useRouter();
 
   const {

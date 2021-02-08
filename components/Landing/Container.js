@@ -8,6 +8,7 @@ import ThirdBloc from "./ThirdBloc";
 
 import useRefreshScroll from "@hooks/useRefreshScroll";
 import useWindowSize from "@hooks/useWindowSize";
+import useAppContext from "@hooks/useAppContext";
 
 export default function Container({ t }) {
   useRefreshScroll();
@@ -15,11 +16,14 @@ export default function Container({ t }) {
 
   const quizRef = useRef();
 
+  const {
+    state: { theScroll },
+  } = useAppContext();
+
+  const quizz = document.getElementById("quizzContainer");
+
   function scrollToQuiz() {
-    quizRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    theScroll.scrollTo(quizz, { offset: -90, duration: 500 });
   }
 
   return (
@@ -38,21 +42,25 @@ export default function Container({ t }) {
         />
       </Chapulines>
       <Title data-scroll data-scroll-speed="-5">
-        <div>
-          <span className="lnr lnr-bug" />
-        </div>
-        <h2>{t("homeTitle")} </h2>
-        <div>
-          <span className="lnr lnr-bug" />
-        </div>
+        <section>
+          <div>
+            <span className="lnr lnr-bug" />
+          </div>
+          <h2>{t("homeTitle")} </h2>
+          <div>
+            <span className="lnr lnr-bug" />
+          </div>
+        </section>
+        <SubTitle
+          onClick={() => {
+            scrollToQuiz();
+          }}
+        >
+          Testez votre connaissance{" "}
+          <span className="lnr lnr-chevron-down-circle" />
+        </SubTitle>
       </Title>
-      <p
-        onClick={() => {
-          scrollToQuiz();
-        }}
-      >
-        Tester votre connaissance
-      </p>
+
       <BlocsWrapper>
         <FirstBloc t={t} quizRef={quizRef} />
         <SecondBloc t={t} />
@@ -119,12 +127,17 @@ const Title = styled.div`
   z-index: 3;
   text-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   & h2 {
     //border-top: solid 2px;
     //border-bottom: solid 2px;
     // padding: 40px 0;
+  }
+  & section {
+    display: flex;
+    justify-content: center;
   }
   & div {
     position: relative;
@@ -148,11 +161,37 @@ const Title = styled.div`
     transform: rotate(-90deg);
   }
   @media (max-width: 680px) {
-    font-size: 2.2rem;
-    line-height: 3rem;
-    width: 90%;
-    margin: auto;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     left: 50%;
     transform: translate(-50%, -50%);
+    & section {
+      align-items: center;
+      width: 90%;
+      margin: auto;
+    }
+    & section div {
+      display: flex;
+      align-items: center;
+    }
+    & section span {
+      font-size: 2rem;
+    }
+  }
+`;
+
+const SubTitle = styled.p`
+  font-size: 1.2rem;
+  margin-top: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: ease 0.2s;
+  & span {
+    margin-left: 12px;
+  }
+  &:hover {
+    transform: translateY(1px);
+    font-size: 1.25rem;
   }
 `;

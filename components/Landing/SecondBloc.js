@@ -90,7 +90,7 @@ const Wrapper = styled.div`
   padding-top: 100px;
   padding-bottom: 60px;
   @media (max-width: 680px) {
-    padding-top: 30px;
+    padding-top: 50px;
     padding-bottom: 30px;
   }
 `;

@@ -3,20 +3,21 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function FirstBloc({ t, quizRef }) {
-  const [value, valueChange] = useState(null);
+  const [value, valueChange] = useState(0);
   const router = useRouter();
 
   return (
-    <Back ref={quizRef}>
+    <Back id="quizzContainer" ref={quizRef}>
       <Wrapper>
         <h2>Una pequena pregunta...</h2>
         <NumberInput
           value={value}
           onChange={(e) => {
-            valueChange(Number(e.target.value));
+            if (!Number.isNaN(Number(e.target.value))) {
+              valueChange(Number(e.target.value));
+            }
           }}
           placeholder="Your guess"
-          type="number"
           min={0}
         />
         <button>Verificar</button>
@@ -26,9 +27,10 @@ export default function FirstBloc({ t, quizRef }) {
 }
 
 const Back = styled.div`
-  background-color: #d7c79e;
   background-color: rgb(23, 119, 87);
   //background-color: #295939;
+  //background-color : #9dad7f;
+  background-color: rgba(162, 140, 56, 0.9);
   color: rgb(255, 255, 255, 0.8);
   color: ${(props) => props.theme.background};
   height: calc(100vh - 90px);
@@ -57,32 +59,29 @@ const Wrapper = styled.div`
   }
   & h2 {
     font-size: 2rem;
-    margin-bottom: 4rem;
-    line-height: 2.4rem;
+    margin-bottom: 48px;
+    line-height: 2.6rem;
+    text-align: center;
   }
   & button {
     margin-top: 12px;
     color: rgb(23, 119, 87);
-    background-color: ${(props) => props.theme.background};
-    border-color: ${(props) => props.theme.background};
+    background-color: white;
+    border-color: white;
+    padding: 14px 32px;
+    font-size: 18px;
+    border-radius: 4rem;
+    letter-spacing: 2px;
+    font-family: Montserrat;
   }
   @media (max-width: 680px) {
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 40px;
-    & div {
-      width: 100%;
-    }
     & h2 {
-      font-size: 1.6rem;
-      line-height: 2rem;
+      font-size: 1.8rem;
+      line-height: 2.8rem;
       margin-bottom: 12px;
-    }
-    & button {
-      margin: auto;
-      margin-top: 36px;
-      display: block;
-      margin-bottom: 36px;
     }
   }
 `;
@@ -94,8 +93,9 @@ const NumberInput = styled.input`
   border-bottom: solid 2px;
   border-radius: 0;
   font-size: 4rem;
-  margin-bottom: 36px;
-  width: 340px;
+  margin-bottom: 48px;
+  width: 140px;
+  text-align: center;
 `;
 
 /* 
