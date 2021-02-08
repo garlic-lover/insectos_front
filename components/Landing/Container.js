@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -12,6 +13,15 @@ export default function Container({ t }) {
   useRefreshScroll();
   const { width } = useWindowSize();
 
+  const quizRef = useRef();
+
+  function scrollToQuiz() {
+    quizRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
   return (
     <Wrapper data-scroll-container id="cont">
       <Chapulines
@@ -22,6 +32,7 @@ export default function Container({ t }) {
       >
         <Image
           layout="fill"
+          priority={true}
           src="/images/chapulines.jpg"
           alt="chapulines en el mercado"
         />
@@ -35,8 +46,15 @@ export default function Container({ t }) {
           <span className="lnr lnr-bug" />
         </div>
       </Title>
+      <p
+        onClick={() => {
+          scrollToQuiz();
+        }}
+      >
+        Tester votre connaissance
+      </p>
       <BlocsWrapper>
-        <FirstBloc t={t} />
+        <FirstBloc t={t} quizRef={quizRef} />
         <SecondBloc t={t} />
         <ThirdBloc t={t} />
       </BlocsWrapper>

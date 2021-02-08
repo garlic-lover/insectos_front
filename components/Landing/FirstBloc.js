@@ -1,28 +1,25 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function FirstBloc({ t }) {
+export default function FirstBloc({ t, quizRef }) {
+  const [value, valueChange] = useState(null);
   const router = useRouter();
 
   return (
-    <Back>
+    <Back ref={quizRef}>
       <Wrapper>
-        <div>
-          <p>Comer insectos... </p>
-          <h2>{t("homeTitle")}</h2>
-          <p>
-            La comida con insectos será la próxima tendancia en la gastronomia
-            mundial. Y tú, ¿te los imaginas en tu plato?
-          </p>
-          <button
-            onClick={() => {
-              router.push("/facts");
-            }}
-          >
-            Más información
-          </button>
-        </div>
-        {/*  <Chapulines src="/images/chapulines.jpg" /> */}
+        <h2>Una pequena pregunta...</h2>
+        <NumberInput
+          value={value}
+          onChange={(e) => {
+            valueChange(Number(e.target.value));
+          }}
+          placeholder="Your guess"
+          type="number"
+          min={0}
+        />
+        <button>Verificar</button>
       </Wrapper>
     </Back>
   );
@@ -34,8 +31,8 @@ const Back = styled.div`
   //background-color: #295939;
   color: rgb(255, 255, 255, 0.8);
   color: ${(props) => props.theme.background};
-  padding-top: 100px;
-  padding-bottom: 100px;
+  height: calc(100vh - 90px);
+  display: flex;
   @media (max-width: 680px) {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -47,19 +44,20 @@ const Wrapper = styled.div`
   max-width: 1040px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  color: white;
   & div {
     width: 40%;
   }
   & p {
-    //   color: ${(props) => props.theme.color2};
     margin-bottom: 6px;
     opacity: 0.9;
   }
   & h2 {
     font-size: 2rem;
-    margin-bottom: 18px;
+    margin-bottom: 4rem;
     line-height: 2.4rem;
   }
   & button {
@@ -88,3 +86,32 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+const NumberInput = styled.input`
+  color: white;
+  border-color: white;
+  border: none;
+  border-bottom: solid 2px;
+  border-radius: 0;
+  font-size: 4rem;
+  margin-bottom: 36px;
+  width: 340px;
+`;
+
+/* 
+  <div>
+          <p>Comer insectos... </p>
+          <h2>{t("homeTitle")}</h2>
+          <p>
+            La comida con insectos será la próxima tendancia en la gastronomia
+            mundial. Y tú, ¿te los imaginas en tu plato?
+          </p>
+          <button
+            onClick={() => {
+              router.push("/facts");
+            }}
+          >
+            Más información
+          </button>
+        </div> 
+*/

@@ -53,6 +53,7 @@ const StateProvider = ({ children }) => {
           ...state,
           theScroll: action.theScroll,
         };
+
       default:
         throw new Error();
     }
