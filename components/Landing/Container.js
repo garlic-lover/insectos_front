@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
-import FirstBloc from "./FirstBloc";
+import FirstBloc from "./FirstBloc/index.js";
 import SecondBloc from "./SecondBloc";
 import ThirdBloc from "./ThirdBloc";
 

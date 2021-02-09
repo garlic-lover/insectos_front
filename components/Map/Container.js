@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapContainer } from "react-leaflet";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
@@ -11,6 +11,7 @@ import Switch from "../DS/Switch";
 import Loader from "../DS/Loader";
 
 import useWindowSize from "@hooks/useWindowSize";
+import useAppContext from "@hooks/useAppContext";
 
 export default function Map() {
   const [worldScope, worldScopeChange] = useState(false);
@@ -20,9 +21,20 @@ export default function Map() {
     state_code: null,
   });
 
+  const {
+    state: { theScroll },
+  } = useAppContext();
+
   const { width } = useWindowSize();
 
   const { loading, error, data } = useQuery(ESTADOS);
+
+  useEffect(() => {
+    if (data) {
+      theScroll.destroy();
+      theScroll.init();
+    }
+  }, [data]);
 
   if (error) {
     console.log(error);

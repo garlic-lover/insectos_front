@@ -30,21 +30,9 @@ export default function SecondBloc({ t }) {
   const [page, pageChange] = useState(0);
 
   return (
-    <Wrapper
-      id="about"
-      /*  id="stick"
-      className="hiddenSlow"
-      data-scroll
-      data-scroll-class="appear" */
-    >
+    <Wrapper id="about">
       <Main>
-        <Title
-          className="hidden"
-          data-scroll
-          data-scroll-class="appear"
-          /* data-scroll-sticky
-          data-scroll-target="#stick" */
-        >
+        <Title className="hidden" data-scroll data-scroll-class="appear">
           Insectivora, que es ?
         </Title>
         <SubTitle className="hidden" data-scroll data-scroll-class="appear">
