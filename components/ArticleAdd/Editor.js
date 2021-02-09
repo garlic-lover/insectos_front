@@ -61,7 +61,7 @@ export default function Editor() {
           },
         },
         onReady: () => {
-          theScroll.update();
+          theScroll.destroy();
         },
       });
       theEditorChange(editor);

@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client";
-
 const BLOG_ARTICLE = `
   query blogArticle($name: String) {
     blogArticle(name: $name) {
@@ -16,6 +14,13 @@ const BLOG_ARTICLE = `
             text
             items
             style
+            file{
+              url
+            }
+            caption
+            withBorder
+            withBackground
+            stretched
           }
         }
         version

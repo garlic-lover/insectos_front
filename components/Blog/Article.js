@@ -1,6 +1,7 @@
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import List from "@editorjs/list";
+import ImageTool from "@editorjs/image";
 
 import { useState, useEffect } from "react";
 
@@ -29,6 +30,7 @@ export default function Editor({ data }) {
           list: {
             class: List,
           },
+          image: { class: ImageTool },
         },
         onReady: () => {
           theScroll.update();

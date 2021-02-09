@@ -38,7 +38,6 @@ async function endpoint(req, res) {
   });
 
   let theRes = await upload.promise();
-  console.log(theRes);
 
   res.json({ success: 1, file: { url: theRes.Location } });
 }

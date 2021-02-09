@@ -111,7 +111,9 @@ export default function Layout({ children }) {
   }, [theScroll]);
 
   useEffect(() => {
-    if (theScroll) {
+    if (theScroll && router.pathname === "article_add") {
+      theScroll.destroy();
+    } else if (theScroll) {
       theScroll.destroy();
       theScroll.init();
     }
