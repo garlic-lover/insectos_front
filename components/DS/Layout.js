@@ -86,6 +86,7 @@ function ThemeChanger({ theme, themeChange }) {
 export default function Layout({ children }) {
   const [theme, themeChange] = useState({
     background: "#f6f5f5",
+    background2: "rgb(242, 237, 227)",
     main: "#a35638",
     color2: "rgba(121, 147, 82, 0.4)",
     color3: "#9dab86",

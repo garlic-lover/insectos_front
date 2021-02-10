@@ -70,6 +70,7 @@ const Options = styled.div`
 
 const Option = styled.p`
   cursor: pointer;
+  transition: linear 0.2s;
   border: solid 1px
     ${(props) =>
       props.isSelected && props.isGood === "true"
@@ -100,6 +101,8 @@ const Button = styled.button`
   bottom: 0px;
   left: 50%;
   transform: translate(-50%, 100%);
+  transition: linear 0.5s;
+  min-width: 200px;
   color: ${(props) => (props.isGood ? "white" : "rgb(162, 140, 56)")};
   background-color: ${(props) =>
     props.isGood === "true"
