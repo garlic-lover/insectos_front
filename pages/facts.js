@@ -4,6 +4,7 @@ import useTranslate from "../hooks/useTranslate";
 import styled from "styled-components";
 
 import Deck from "../components/Cards/Deck";
+import Loader from "../components/DS/Loader";
 
 export default function Home() {
   const [page, pageChange] = useState(0);
@@ -26,14 +27,18 @@ export default function Home() {
   return (
     <Container>
       <CardsWrapper>
-        <Deck
-          facts={facts}
-          t={t}
-          lang={lang}
-          loadMore={() => {
-            pageChange(page + 1);
-          }}
-        />
+        {facts.length === 0 ? (
+          <Loader />
+        ) : (
+          <Deck
+            facts={facts}
+            t={t}
+            lang={lang}
+            loadMore={() => {
+              pageChange(page + 1);
+            }}
+          />
+        )}
       </CardsWrapper>
     </Container>
   );

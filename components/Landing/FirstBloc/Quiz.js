@@ -43,15 +43,15 @@ export default function Quiz() {
           {!result
             ? "Verificar"
             : result === "true"
-            ? "Félicitations"
-            : "Réessayer"}
+            ? "Felicidades"
+            : "Volver a intentar"}
         </Button>
       </form>
       {result && (
         <Result result={result}>
           {result === "true"
-            ? "Exact : il y en a en effet plus de 500"
-            : "Faux ! Vous pouvez réessayer"}
+            ? "Correcto: de hecho, hay más de 500"
+            : "Falso ! Puedes intentarlo de nuevo"}
         </Result>
       )}
     </>
@@ -71,7 +71,7 @@ const Options = styled.div`
 const Option = styled.p`
   cursor: pointer;
   transition: linear 0.2s;
-  border: solid 1px
+  border: solid 2px
     ${(props) =>
       props.isSelected && props.isGood === "true"
         ? "green"
@@ -89,6 +89,7 @@ const Option = styled.p`
       ? "white"
       : "lightgrey"};
   padding: 30px;
+  font-size: 20px;
   border-radius: 20px;
   text-align: center;
   @media (max-width: 700px) {

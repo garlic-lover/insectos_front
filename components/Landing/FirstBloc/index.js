@@ -52,11 +52,11 @@ const Wrapper = styled.div`
   position: relative;
   & h2 {
     font-size: 2rem;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     text-align: center;
   }
   & h4 {
-    margin-bottom: 24px;
+    margin-bottom: 36px;
     font-size: 1rem;
   }
   @media (max-width: 680px) {

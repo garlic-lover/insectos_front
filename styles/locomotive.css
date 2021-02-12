@@ -6,12 +6,12 @@
 .hidden {
   position: relative;
   opacity: 0;
-  transition: ease 3s;
+  transition: ease 2s;
 }
 
 .hiddenSlow {
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 2s;
 }
 
 .appear {

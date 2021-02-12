@@ -6,11 +6,7 @@ const TypeForm = dynamic(() => import("../components/Collaborate/Typeform"), {
   ssr: false,
 });
 
-import useRefreshScroll from "@hooks/useRefreshScroll";
-
 export default function Collaborate() {
-  useRefreshScroll();
-
   return (
     <Wrapper>
       <h2>Interested by the project ? </h2>

@@ -128,7 +128,7 @@ export default function Layout({ children }) {
         <Container isHomePage={router.pathname === "/"}>{children}</Container>
         <Footer />
       </Main>
-      <ThemeChanger theme={theme} themeChange={themeChange} />
+      {/*       <ThemeChanger theme={theme} themeChange={themeChange} /> */}
     </ThemeProvider>
   );
 }

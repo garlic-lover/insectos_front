@@ -8,12 +8,18 @@ export default function ThirdBloc() {
     <Wrapper>
       <section>
         <Title className="hidden" data-scroll data-scroll-class="appear">
-          Quien somos ?
+          ¿Quiénes somos ?
         </Title>
         <p className="hidden" data-scroll data-scroll-class="appear">
-          Aliquip fugiat consequat do cupidatat sint. Non cupidatat consequat
-          culpa dolor nostrud quis in enim deserunt nostrud veniam Lorem. Est
-          fugiat elit velit sunt. Sint qui velit nulla ea cupidatat.
+          <span>Insectívora</span> es producto de un equipo multidisciplinario
+          apasionado por la entomología y los insectos comestibles. Nuestros
+          esfuerzos están enfocados en gestar un medio que ahonde en la
+          entomofagia, que recopile, genere y difunda esta información con
+          integridad moral y un enfoque sustentable.
+        </p>
+        <p>
+          Nos interesa la inclusión social; la participación y el libre acceso
+          de la información para generar debate.
         </p>
         <button
           onClick={() => {
@@ -23,7 +29,7 @@ export default function ThirdBloc() {
           data-scroll
           data-scroll-class="appear"
         >
-          Want to join ?
+          Colaborar
         </button>
       </section>
     </Wrapper>
@@ -41,8 +47,28 @@ const Wrapper = styled.div`
     padding-bottom: 60px;
   }
   & p {
-    width: 80%;
+    width: 88%;
     margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 36px !important;
+  }
+  & button {
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-family: Montserrat;
+    padding: 16px 32px;
+    border-radius: 32px;
+    transition: ease 0.5s;
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.main};
+  }
+  & button:hover {
+    color: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.main};
+  }
+  & p span {
+    font-size: 2rem;
+    letter-spacing: 3px;
   }
   @media (max-width: 680px) {
     padding-top: 30px;

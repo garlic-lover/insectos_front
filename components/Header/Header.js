@@ -59,7 +59,7 @@ export default function Header() {
                 {t("collaborate")}
               </MenuItem>
             </Link>
-            <LanguageSwitch />
+            {/* <LanguageSwitch /> */}
           </Menu>
         </section>
         {menuOpened && (
@@ -88,7 +88,7 @@ const Container = styled.header`
   & section {
     position: relative;
     width: 94%;
-    max-width: 1040px;
+    max-width: 1240px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,8 +139,7 @@ const MenuItem = styled.a`
   cursor: pointer;
   padding-bottom: 4px;
   border-bottom: solid 2.5px
-    ${(props) =>
-      props.isSelected ? "props.theme.main" : props.theme.background};
+    ${(props) => (props.isSelected ? props.theme.main : props.theme.background)};
   &:hover {
     border-bottom: solid 2.5px ${(props) => props.theme.main};
   }

@@ -37,7 +37,7 @@ export default function ResponsiveMenu({ isOpened, close, router, t }) {
             {t("collaborate")}
           </MenuItem>
         </Link>
-        <LanguageSwitch />
+        {/*   <LanguageSwitch /> */}
       </Menu>
     </Wrapper>
   );

@@ -23,7 +23,7 @@ export default function MapPage() {
               pageChange(0);
             }}
           >
-            Sobre el mapa
+            Mapa
           </PageOption>
           <PageOption
             isSelected={page === 1}
@@ -31,11 +31,11 @@ export default function MapPage() {
               pageChange(1);
             }}
           >
-            Ver el mapa
+            Explicaciones
           </PageOption>
         </nav>
       </PageSelect>
-      {page === 0 ? <About /> : <Map />}
+      {page === 1 ? <About /> : <Map />}
     </Wrapper>
   );
 }
@@ -46,10 +46,13 @@ const Wrapper = styled.div`
   margin: auto;
   min-height: calc(100vh - 200px);
   margin-top: 30px;
+  @media (max-width: 680px) {
+    margin-top: 20px;
+  }
 `;
 
 const PageSelect = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   display: flex;
   justify-content: center;
   & nav {
@@ -57,6 +60,10 @@ const PageSelect = styled.div`
     background-color: ${(props) => props.theme.background2};
     border: solid 1px;
     border-radius: 16px;
+  }
+  @media (max-width: 680px) {
+    margin-bottom: 20px;
+    font-size: 12px;
   }
 `;
 

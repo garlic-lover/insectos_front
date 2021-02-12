@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useQuery } from "@apollo/client";
 
 import BLOG_ARTICLES from "@GraphQl/Queries/BLOG_ARTICLES";
+import Loader from "../../components/DS/Loader";
 
 import useAppContext from "@hooks/useAppContext";
 
@@ -23,12 +24,19 @@ export default function Blog() {
   }, [data]);
 
   if (!data) {
-    return <Wrapper>Loading...</Wrapper>;
+    return (
+      <Wrapper>
+        <Loader />
+      </Wrapper>
+    );
   }
 
   return (
     <Wrapper>
       <h2>Blog</h2>
+      {data.blogArticles.length === 0 && (
+        <p>Nuestros primeros articulos pronto...</p>
+      )}
       <ul>
         {data.blogArticles.map(
           ({ title, shortDescription, authorName }, index) => {
@@ -54,7 +62,7 @@ const Wrapper = styled.div`
   width: 94%;
   max-width: 1040px;
   margin: auto;
-  min-height: 550px;
+  min-height: 650px;
   margin-top: 50px;
   & h2 {
     font-size: 2.5rem;
