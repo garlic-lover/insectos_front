@@ -67,7 +67,7 @@ export default function Container({ t }) {
             scrollToQuiz();
           }}
         >
-          Testez votre connaissance{" "}
+          Pon a prueba tus conocimientos
           <span className="lnr lnr-chevron-down-circle" />
         </SubTitle>
       </Title>

@@ -12,14 +12,15 @@ export default function ThirdBloc() {
         </Title>
         <p className="hidden" data-scroll data-scroll-class="appear">
           <span>Insectívora</span> es producto de un equipo multidisciplinario
-          apasionado por la entomología y los insectos comestibles. Nuestros
-          esfuerzos están enfocados en gestar un medio que ahonde en la
+          apasionado por la entomología y los insectos comestibles.
+          <br />
+          Nuestros esfuerzos están enfocados en gestar un medio que ahonde en la
           entomofagia, que recopile, genere y difunda esta información con
           integridad moral y un enfoque sustentable.
         </p>
         <p>
-          Nos interesa la inclusión social; la participación y el libre acceso
-          de la información para generar debate.
+          Nos interesa la inclusión social; la participación y el libre acceso a
+          la información para generar debate.
         </p>
         <button
           onClick={() => {
@@ -51,6 +52,7 @@ const Wrapper = styled.div`
     margin-bottom: 40px;
     font-size: 18px;
     line-height: 36px !important;
+    text-align: left;
   }
   & button {
     font-size: 20px;

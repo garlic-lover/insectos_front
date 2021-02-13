@@ -9,13 +9,8 @@ export default function Footer() {
           href="https://www.instagram.com/insectivora_facts/?hl=es"
           target="_blank"
         >
+          <p>insectivora_facts</p>
           <span className="icon-instagram" />
-        </a>
-        <a
-          href="https://www.instagram.com/insectivora_facts/?hl=es"
-          target="_blank"
-        >
-          <span className="icon-facebook2" />
         </a>
       </SocialNetworks>
     </Wrapper>
@@ -40,12 +35,21 @@ const SocialNetworks = styled.div`
   right: 24px;
   width: 48px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: flex-end;
+  & p {
+    color: ${(props) => props.theme.main};
+    font-size: 18px;
+    margin-right: 6px;
+  }
   & a {
     text-decoration: inherit;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   & span {
-    font-size: 20px;
+    font-size: 36px;
     color: ${(props) => props.theme.main};
     border: none;
   }

@@ -51,7 +51,7 @@ function Content({ currentState: { state_name, state_code } }) {
           //displayPopupChange(true);
         }}
       >
-        Add insect
+        Añadir insecto
       </button>
       {displayPopup && (
         <CreatePopup

@@ -9,8 +9,8 @@ export default function FirstBloc({ t, quizRef, scrollToAbout }) {
   return (
     <Back id="quizzContainer" ref={quizRef}>
       <Wrapper>
-        <h2>Una pequena pregunta...</h2>
-        <h4>Cuantas especies de insectos comestibles hay en Mexico ? </h4>
+        <h2>Una pequeña pregunta...</h2>
+        <h4>¿Cuantas especies de insectos comestibles hay en México ? </h4>
         <Quiz />
       </Wrapper>
       <ScrollDown
@@ -18,7 +18,7 @@ export default function FirstBloc({ t, quizRef, scrollToAbout }) {
           scrollToAbout();
         }}
       >
-        Mas sobre Insectivora <span className="lnr lnr-chevron-down-circle" />
+        Más sobre Insectivora <span className="lnr lnr-chevron-down-circle" />
       </ScrollDown>
     </Back>
   );
