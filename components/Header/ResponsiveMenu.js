@@ -7,12 +7,12 @@ export default function ResponsiveMenu({ isOpened, close, router, t }) {
   return (
     <Wrapper isOpened={isOpened}>
       <Menu>
-        <Link href="/map">
+        <Link href="/mapa">
           <MenuItem
             onClick={() => {
               close();
             }}
-            isSelected={router.pathname === "/map"}
+            isSelected={router.pathname === "/mapa"}
           >
             {t("map")}
           </MenuItem>
@@ -27,12 +27,12 @@ export default function ResponsiveMenu({ isOpened, close, router, t }) {
             {t("facts")}
           </MenuItem>
         </Link>
-        <Link href="/collaborate">
+        <Link href="/colaborar">
           <MenuItem
             onClick={() => {
               close();
             }}
-            isSelected={router.pathname === "/collaborate"}
+            isSelected={router.pathname === "/colaborar"}
           >
             {t("collaborate")}
           </MenuItem>

@@ -41,8 +41,8 @@ export default function Header() {
             }}
           />
           <Menu>
-            <Link href="/map">
-              <MenuItem isSelected={router.pathname === "/map"}>
+            <Link href="/mapa">
+              <MenuItem isSelected={router.pathname === "/mapa"}>
                 {t("map")}
               </MenuItem>
             </Link>
@@ -54,8 +54,8 @@ export default function Header() {
             <Link href="/blog">
               <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
             </Link>
-            <Link href="/collaborate">
-              <MenuItem isSelected={router.pathname === "/collaborate"}>
+            <Link href="/colaborar">
+              <MenuItem isSelected={router.pathname === "/colaborar"}>
                 {t("collaborate")}
               </MenuItem>
             </Link>
