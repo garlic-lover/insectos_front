@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const options = ["35 especies", "150 especies", "Mas de 500 especies"];
+const options = ["35 especies", "150 especies", "Más de 500 especies"];
 
 export default function Quiz() {
   const [value, valueChange] = useState(0);
@@ -74,17 +74,17 @@ const Option = styled.p`
   border: solid 2px
     ${(props) =>
       props.isSelected && props.isGood === "true"
-        ? "green"
+        ? "seagreen"
         : props.isSelected && props.isGood === "false"
-        ? "red"
+        ? "brown"
         : props.isSelected
         ? "white"
         : "lightgrey"};
   color: ${(props) =>
     props.isSelected && props.isGood === "true"
-      ? "green"
+      ? "seagreen"
       : props.isSelected && props.isGood === "false"
-      ? "red"
+      ? "brown"
       : props.isSelected
       ? "white"
       : "lightgrey"};
@@ -107,15 +107,15 @@ const Button = styled.button`
   color: ${(props) => (props.isGood ? "white" : "rgb(162, 140, 56)")};
   background-color: ${(props) =>
     props.isGood === "true"
-      ? "green"
+      ? "seagreen"
       : props.isGood === "false"
-      ? "red"
+      ? "brown"
       : "white"};
   border-color: ${(props) =>
     props.isGood === "true"
-      ? "green"
+      ? "seagreen"
       : props.isGood === "false"
-      ? "red"
+      ? "brown"
       : "white"} !important;
   border-color: white;
   padding: 14px 32px;
@@ -132,5 +132,5 @@ const Result = styled.p`
   position: absolute;
   bottom: -100px;
   transform: translateY(100%);
-  color: ${(props) => (props.result === "true" ? "" : "red")};
+  color: ${(props) => (props.result === "true" ? "" : "brown")};
 `;

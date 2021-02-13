@@ -31,7 +31,7 @@ export default function MapPage() {
               pageChange(1);
             }}
           >
-            Explicaciones
+            Instruciones
           </PageOption>
         </nav>
       </PageSelect>

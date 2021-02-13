@@ -36,7 +36,7 @@ export default function SimpleCard({
         color={color}
         isontop={isTop ? "true" : "false"}
       >
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>{subTitle}</p>
         <Source title={source}>
           {t("source")} : {source}
@@ -74,8 +74,8 @@ const Card = styled(animated.div)`
       ? "0 12.5px 100px -10px rgba(50, 50, 73, 0.4),0 10px 10px -10px rgba(50, 50, 73, 0.3)"
       : ""};
   padding: 20px;
-  & h2 {
-    font-size: 1.8rem;
+  & h3 {
+    font-size: 1.4rem !important;
     padding-bottom: 10px;
     border-bottom: solid 1px;
     margin-bottom: 2rem;

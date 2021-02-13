@@ -25,8 +25,8 @@ const Wrapper = styled.footer`
   align-items: center;
   position: relative;
   background-color: ${(props) => props.theme.main};
-  color: white;
   background-color: #a38c38;
+  color: white;
 `;
 
 const SocialNetworks = styled.div`
@@ -38,7 +38,7 @@ const SocialNetworks = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   & p {
-    color: ${(props) => props.theme.main};
+    color: white;
     font-size: 18px;
     margin-right: 6px;
   }
@@ -50,7 +50,7 @@ const SocialNetworks = styled.div`
   }
   & span {
     font-size: 36px;
-    color: ${(props) => props.theme.main};
+    color: white;
     border: none;
   }
 `;

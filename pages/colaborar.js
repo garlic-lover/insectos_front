@@ -9,79 +9,66 @@ const TypeForm = dynamic(() => import("../components/Collaborate/Typeform"), {
 export default function Collaborate() {
   return (
     <Wrapper>
-      <h2>Interested by the project ? </h2>
-      <SubTitle>Maybe you can join us, everybody is welcome!</SubTitle>
+      <h2>¿Interesado-a por el proyecto ? </h2>
+      <SubTitle>
+        Quizás puedas unirte a nosotros, ¡Todes son bienvenidos!
+      </SubTitle>
       <Row>
         <div>
-          <h3>Welcomed contributions</h3>
+          <h3>Contribuciones bienvenidas</h3>
           <ul>
             <li>
-              <h4>Biologists</h4>
+              <h4>Biólogos(as)</h4>
+              <p>Temas de interés : entomología, ethnobiologia</p>
+            </li>
+            <li>
+              <h4>Programadores</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Si te gusta el open source <span className="lnr lnr-laptop" />
               </p>
             </li>
             <li>
-              <h4>Developpers</h4>
+              <h4>Diseñadores</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Plasma tu creatividad sobre temas innovadores y socialmente
+                responsables.
               </p>
             </li>
             <li>
-              <h4>Anthropologists</h4>
+              <h4>Apasionados(as)</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
-              </p>
-            </li>
-            <li>
-              <h4>Designers</h4>
-              <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Si los temas que tratamos te interesan y piensas que podrías
+                aportar tus habilidades o talentos, no dudes en contactarnos 🦋
               </p>
             </li>
           </ul>
         </div>
         <div>
-          <h3>How you could help</h3>
+          <h3>Cómo podrías ayudar</h3>
           <ul>
             <li>
-              <h4>Biologists</h4>
+              <h4>Crear contenido</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Queremos que nuestro trabajo llegue al mayor público posible.
+                Por eso, producimos diseños, infografías, videos...
               </p>
             </li>
             <li>
-              <h4>Biologists</h4>
+              <h4>Escribir articulos de opinión</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Redactamos artículos de divulgación dirigidos al público en
+                general.
               </p>
             </li>
             <li>
-              <h4>Biologists</h4>
-              <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
-              </p>
+              <h4>Participar en la página web</h4>
+              <p>Entre el código y el diseño, hay mucho por hacer 🤓 </p>
             </li>
             <li>
-              <h4>Biologists</h4>
+              <h4>Comunicación</h4>
               <p>
-                Quis et sint enim labore ut irure elit sit sit incididunt. Quis
-                et cupidatat nisi et excepteur veniam nisi cillum nisi mollit.
-                Culpa mollit laboris proident anim id.
+                Deseaomos construir y ampliar nuestra red para transimitir
+                nuestra pasión 🐛
               </p>
             </li>
           </ul>
@@ -102,7 +89,7 @@ const Wrapper = styled.div`
   margin-top: 70px;
   & h2 {
     font-size: 2rem;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
   @media (max-width: 680px) {
     margin-top: 70px;
@@ -110,8 +97,10 @@ const Wrapper = styled.div`
 `;
 
 const SubTitle = styled.p`
-  font-size: 16px;
+  font-size: 18px;
+  margin-top: 0;
   margin-bottom: 50px;
+  font-family: Montserrat;
 `;
 
 const Row = styled.div`
@@ -130,6 +119,7 @@ const Row = styled.div`
   & li {
     margin-bottom: 20px;
     font-size: 16px;
+    margin-bottom: 32px;
   }
   & h4 {
     margin-bottom: 12px;

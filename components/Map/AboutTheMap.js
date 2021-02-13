@@ -4,11 +4,7 @@ export default function AboutTheMap() {
   return (
     <Wrapper>
       <h2>Sobre el mapa</h2>
-      <p>
-        Aliquip fugiat consequat do cupidatat sint. Non cupidatat consequat
-        culpa dolor nostrud quis in enim deserunt nostrud veniam Lorem. Est
-        fugiat elit velit sunt. Sint qui velit nulla ea cupidatat.
-      </p>
+      <p>En construcción...</p>
     </Wrapper>
   );
 }

@@ -1,17 +1,12 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function SecondBloc({ t }) {
+  const router = useRouter();
+
   return (
-    <Wrapper id="about">
+    <Wrapper>
       <Main>
-        <Title className="hidden" data-scroll data-scroll-class="appear">
-          Visión
-        </Title>
-        <SubTitle className="hidden" data-scroll data-scroll-class="appear">
-          Creemos que la información científica debe ser de libre y fácil acceso
-          para así generar espacios de debate. Para ello, la participación de la
-          sociedad es importante para generar conocimiento
-        </SubTitle>
         <Title className="hidden" data-scroll data-scroll-class="appear">
           Nuestros objectivos
         </Title>
@@ -35,6 +30,26 @@ export default function SecondBloc({ t }) {
             </h4>
           </div>
         </Grid>
+        <Title className="hidden" data-scroll data-scroll-class="appear">
+          Visión
+        </Title>
+        <SubTitle className="hidden" data-scroll data-scroll-class="appear">
+          Creemos que la información científica debe ser de libre y fácil acceso
+          para generar espacios de reflexión y debate. <br />
+          Nos interesa la inclusión y participación de la sociedad.
+        </SubTitle>
+        <button
+          onClick={() => {
+            router.push("/colaborar");
+          }}
+          className="hidden"
+          data-scroll
+          data-scroll-class="appear"
+        >
+          Colaborar
+        </button>
+        {/* Para ello, la
+          participación de la sociedad es importante para generar conocimiento. */}
       </Main>
     </Wrapper>
   );
@@ -47,10 +62,23 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 00px;
+  padding-bottom: 40px;
+  & button {
+    font-size: 20px;
+    letter-spacing: 4px;
+    font-family: Montserrat;
+    padding: 16px 32px;
+    border-radius: 32px;
+    transition: ease 0.5s;
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.main};
+  }
+  & button:hover {
+    color: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.main};
+  }
   @media (max-width: 680px) {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 30px;
   }
 `;
@@ -70,19 +98,21 @@ const Title = styled.h3`
   @media (max-width: 680px) {
     font-size: 30px;
     margin-bottom: 12px;
+    line-height: 36px;
   }
 `;
 
 const SubTitle = styled.p`
   font-size: 18px;
   line-height: 30px;
-  width: 85%;
+  width: 80%;
   margin: auto;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
   @media (max-width: 680px) {
     font-size: 16px;
     width: 80%;
     margin: auto;
+    margin-bottom: 40px;
   }
 `;
 
@@ -90,6 +120,8 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 60px;
   & div {
     padding: 30px;
   }
@@ -111,5 +143,12 @@ const Grid = styled.div`
   }
   @media (max-width: 680px) {
     grid-template-columns: 1fr;
+    margin-bottom: 20px;
+    & h4 {
+      font-size: 20px;
+      line-height: 36px;
+      width: 80%;
+      margin: auto;
+    }
   }
 `;

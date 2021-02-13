@@ -74,8 +74,7 @@ export default function Container({ t }) {
 
       <BlocsWrapper>
         <FirstBloc t={t} quizRef={quizRef} scrollToAbout={scrollToAbout} />
-        <SecondBloc t={t} />
-        <ThirdBloc t={t} />
+        <ThirdBloc t={t} /> <SecondBloc t={t} />
       </BlocsWrapper>
     </Wrapper>
   );
