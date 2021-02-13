@@ -27,7 +27,9 @@ export default function Map() {
 
   const { width } = useWindowSize();
 
-  const { loading, error, data } = useQuery(ESTADOS);
+  const { loading, error, data } = useQuery(ESTADOS, {
+    fetchPolicy: "no-cache",
+  });
 
   useEffect(() => {
     if (data) {

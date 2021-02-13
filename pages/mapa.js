@@ -10,9 +10,7 @@ import { useState } from "react";
 
 export default function MapPage() {
   const [page, pageChange] = useState(0);
-  if (typeof window === "undefined") {
-    return null;
-  }
+
   return (
     <Wrapper>
       <PageSelect>
@@ -35,7 +33,8 @@ export default function MapPage() {
           </PageOption>
         </nav>
       </PageSelect>
-      {page === 1 ? <About /> : <Map />}
+      {page === 0 && <Map />}
+      {page === 1 && <About />}
     </Wrapper>
   );
 }
