@@ -1,3 +1,6 @@
+import styled from "styled-components";
+import { useState } from "react";
+
 import dynamic from "next/dynamic";
 const Map = dynamic(() => import("../components/Map/Container"), {
   ssr: false,
@@ -5,10 +8,10 @@ const Map = dynamic(() => import("../components/Map/Container"), {
 
 import About from "../components/Map/AboutTheMap";
 
-import styled from "styled-components";
-import { useState } from "react";
+import useTranslate from "@hooks/useTranslate";
 
 export default function MapPage() {
+  const { t } = useTranslate();
   const [page, pageChange] = useState(0);
 
   return (
@@ -21,7 +24,7 @@ export default function MapPage() {
               pageChange(0);
             }}
           >
-            Mapa
+            {t("map")}
           </PageOption>
           <PageOption
             isSelected={page === 1}
@@ -29,12 +32,12 @@ export default function MapPage() {
               pageChange(1);
             }}
           >
-            Instruciones
+            {t("instructions")}
           </PageOption>
         </nav>
       </PageSelect>
       {page === 0 && <Map />}
-      {page === 1 && <About />}
+      {page === 1 && <About t={t} />}
     </Wrapper>
   );
 }

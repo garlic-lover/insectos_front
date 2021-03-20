@@ -1,9 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const options = ["35 especies", "150 especies", "Más de 500 especies"];
+import useTranslate from "@hooks/useTranslate";
+
+const options = {
+  fr: ["35 espèces", "150 espèces", "Plus de 500 espèces"],
+  es: ["35 especies", "150 especies", "Más de 500 especies"],
+  en: ["35 species", "150 species", "More than 500 species"],
+};
 
 export default function Quiz() {
+  const { t, lang } = useTranslate();
   const [value, valueChange] = useState(0);
   const [result, resultChange] = useState(null);
   return (
@@ -22,7 +29,7 @@ export default function Quiz() {
         }}
       >
         <Options>
-          {options.map((opt, index) => {
+          {options[lang].map((opt, index) => {
             return (
               <Option
                 isSelected={index === value}
@@ -41,17 +48,17 @@ export default function Quiz() {
         </Options>
         <Button isGood={result} onClick={() => {}}>
           {!result
-            ? "Verificar"
+            ? t("landing").check
             : result === "true"
-            ? "Felicidades"
-            : "Volver a intentar"}
+            ? t("landing").congratulations
+            : t("landing").tryAgain}
         </Button>
       </form>
       {result && (
         <Result result={result}>
           {result === "true"
-            ? "Correcto: de hecho, hay más de 500"
-            : "Falso ! Puedes intentarlo de nuevo"}
+            ? t("landing").answerTrue
+            : t("landing").answerFalse}
         </Result>
       )}
     </>

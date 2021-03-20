@@ -6,71 +6,50 @@ const TypeForm = dynamic(() => import("../components/Collaborate/Typeform"), {
   ssr: false,
 });
 
+import useTranslate from "@hooks/useTranslate";
+
 export default function Collaborate() {
+  const { t } = useTranslate();
+
   return (
     <Wrapper>
-      <h2>¿Interesado-a por el proyecto ? </h2>
-      <SubTitle>
-        Quizás puedas unirte a nosotros, ¡Todes son bienvenidos!
-      </SubTitle>
+      <h2>{t("interestedByTheProject")} </h2>
+      <SubTitle>{t("maybeYouCanJoin")}</SubTitle>
       <Row>
         <div>
-          <h3>Contribuciones bienvenidas</h3>
+          <h3>{t("welcomedContributions")}</h3>
           <ul>
             <li>
-              <h4>Biólogos(as)</h4>
-              <p>Temas de interés : entomología, ethnobiologia</p>
+              <h4>{t("welcomed1").title}</h4>
+              <p>{t("welcomed1").descr}</p>
             </li>
             <li>
-              <h4>Programadores</h4>
+              <h4>{t("welcomed2").title}</h4>
               <p>
-                Si te gusta el open source <span className="lnr lnr-laptop" />
+                {t("welcomed2").descr} <span className="lnr lnr-laptop" />
               </p>
             </li>
             <li>
-              <h4>Diseñadores</h4>
-              <p>
-                Plasma tu creatividad sobre temas innovadores y socialmente
-                responsables.
-              </p>
+              <h4>{t("welcomed3").title}</h4>
+              <p>{t("welcomed3").descr}</p>
             </li>
             <li>
-              <h4>Apasionados(as)</h4>
-              <p>
-                Si los temas que tratamos te interesan y piensas que podrías
-                aportar tus habilidades o talentos, no dudes en contactarnos 🦋
-              </p>
+              <h4>{t("welcomed4").title}</h4>
+              <p>{t("welcomed4").descr} 🦋</p>
             </li>
           </ul>
         </div>
         <div>
-          <h3>Cómo podrías ayudar</h3>
+          <h3>{t("howYouCanHelp")}</h3>
           <ul>
-            <li>
-              <h4>Crear contenido</h4>
-              <p>
-                Queremos que nuestro trabajo llegue al mayor público posible.
-                Por eso, producimos diseños, infografías, videos...
-              </p>
-            </li>
-            <li>
-              <h4>Escribir articulos de opinión</h4>
-              <p>
-                Redactamos artículos de divulgación dirigidos al público en
-                general.
-              </p>
-            </li>
-            <li>
-              <h4>Participar en la página web</h4>
-              <p>Entre el código y el diseño, hay mucho por hacer 🤓 </p>
-            </li>
-            <li>
-              <h4>Comunicación</h4>
-              <p>
-                Deseaomos construir y ampliar nuestra red para transimitir
-                nuestra pasión 🐛
-              </p>
-            </li>
+            {t("howYouCanHelpContent").map(({ title, descr }) => {
+              return (
+                <li key={title}>
+                  <h4>{title}</h4>
+                  <p>{descr}</p>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Row>

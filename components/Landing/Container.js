@@ -67,14 +67,14 @@ export default function Container({ t }) {
             scrollToQuiz();
           }}
         >
-          Pon a prueba tus conocimientos
+          {t("landing").testYouKnowledge}
           <span className="lnr lnr-chevron-down-circle" />
         </SubTitle>
       </Title>
-
       <BlocsWrapper>
         <FirstBloc t={t} quizRef={quizRef} scrollToAbout={scrollToAbout} />
-        <ThirdBloc t={t} /> <SecondBloc t={t} />
+        <ThirdBloc t={t} />
+        <SecondBloc t={t} />
       </BlocsWrapper>
     </Wrapper>
   );

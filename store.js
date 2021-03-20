@@ -18,8 +18,8 @@ const initialState = {
   connectedStatus: null,
   token: "",
   personalData: {},
-  t: getTranslate("es"),
-  lang: "es",
+  t: getTranslate("fr"),
+  lang: "fr",
   menuOpened: false,
   theScroll: null,
 };

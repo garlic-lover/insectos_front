@@ -2,17 +2,19 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-import { useQuery } from "@apollo/client";
-
-import BLOG_ARTICLES from "@GraphQl/Queries/BLOG_ARTICLES";
 import Loader from "../../components/DS/Loader";
 
 import useAppContext from "@hooks/useAppContext";
+import useTranslate from "@hooks/useTranslate";
+
+import { useQuery } from "@apollo/client";
+import BLOG_ARTICLES from "@GraphQl/Queries/BLOG_ARTICLES";
 
 export default function Blog() {
-  const router = useRouter();
+  const { t } = useTranslate();
   const { data } = useQuery(BLOG_ARTICLES);
-
+  /* More code */
+  const router = useRouter();
   const {
     state: { theScroll },
   } = useAppContext();
@@ -34,9 +36,7 @@ export default function Blog() {
   return (
     <Wrapper>
       <h2>Blog</h2>
-      {data.blogArticles.length === 0 && (
-        <p>Nuestros primeros articulos pronto...</p>
-      )}
+      {data.blogArticles.length === 0 && <p>{t("blogSoon")}</p>}
       <ul>
         {data.blogArticles.map(
           ({ title, shortDescription, authorName }, index) => {

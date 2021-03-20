@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 
 import ESTADO from "../../GraphQl/Queries/ESTADO";
 
+import useTranslate from "@hooks/useTranslate";
+
 import Insect from "./Insect";
 import CreatePopup from "./CreatePopup";
 
@@ -16,13 +18,14 @@ export default function EstadoDetail({ currentState }) {
 }
 
 function Content({ currentState: { state_name, state_code } }) {
+  const { t } = useTranslate();
   const [displayPopup, displayPopupChange] = useState(false);
   const { error, loading, data, refetch } = useQuery(ESTADO, {
     variables: { state_code },
   });
 
   if (!state_code) {
-    return <h4>No estado selectionado</h4>;
+    return <h4>{t("noSelectedState")}</h4>;
   }
 
   if (error) {
@@ -37,7 +40,9 @@ function Content({ currentState: { state_name, state_code } }) {
 
   return (
     <>
-      <h3>Estado : {state_name}</h3>
+      <h3>
+        {t("state")} : {state_name}
+      </h3>
       <List>
         {insects.length === 0 &&
           "No insect found in our database for this insect"}
@@ -47,11 +52,11 @@ function Content({ currentState: { state_name, state_code } }) {
       </List>
       <button
         onClick={() => {
-          alert("Disponible pronto..");
+          alert(t("availableSoon"));
           //displayPopupChange(true);
         }}
       >
-        Añadir insecto
+        {t("insectAdd")}
       </button>
       {displayPopup && (
         <CreatePopup

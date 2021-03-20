@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
-export default function ThirdBloc() {
+export default function ThirdBloc({ t }) {
   return (
     <Wrapper id="about">
       <section>
         <Title className="hidden" data-scroll data-scroll-class="appear">
-          ¿Quiénes somos ?
+          {t("landing").whoAreWe}
         </Title>
         <p className="hidden" data-scroll data-scroll-class="appear">
-          <span>Insectívora</span> es producto de un equipo multidisciplinario
-          apasionado por la entomología y los insectos comestibles.
+          <span>Insectívora</span> {t("landing").whoAreWe1}
           <br />
-          Nuestros esfuerzos están enfocados en gestar un medio que ahonde en la
-          entomofagia, que recopile, genere y difunda esta información con
-          integridad moral y un enfoque sustentable.
+          {t("landing").whoAreWe2}
         </p>
       </section>
     </Wrapper>

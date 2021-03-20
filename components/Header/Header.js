@@ -59,7 +59,7 @@ export default function Header() {
                 {t("collaborate")}
               </MenuItem>
             </Link>
-            {/* <LanguageSwitch /> */}
+            <LanguageSwitch />
           </Menu>
         </section>
         {menuOpened && (

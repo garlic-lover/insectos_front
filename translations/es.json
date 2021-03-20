@@ -7,5 +7,72 @@
   "collaborate": "Colaborar",
   "wantToJoin": "Quieres participar en el proyecto ? ¡Contáctanos!",
   "homeTitle": "Entomofagia, ¿por qué no? ",
-  "source": "fuente"
+  "source": "fuente",
+  "blogSoon": "Nuestros primeros articulos pronto...",
+  "instructions": "Instruciones",
+  "aboutTheMap": "Sobre el mapa",
+  "underConstruct": "En construcción...",
+  "noSelectedState": "No estado selectionado",
+  "state": "Estado",
+  "insectAdd": "Añadir insecto",
+  "availableSoon": "Disponible pronto..",
+  "interestedByTheProject": "¿Interesado-a por el proyecto ?",
+  "maybeYouCanJoin": "Quizás puedas unirte a nosotros, ¡Todes son bienvenidos!",
+  "welcomedContributions": "Contribuciones bienvenidas",
+  "welcomed1": {
+    "title": "Biólogos(as)",
+    "descr": "Temas de interés : entomología, ethnobiologia."
+  },
+  "welcomed2": {
+    "title": "Programadores",
+    "descr": "Si te gusta el open source."
+  },
+  "welcomed3": {
+    "title": "Diseñadores",
+    "descr": "Plasma tu creatividad sobre temas innovadores y socialmente responsables."
+  },
+  "welcomed4": {
+    "title": "Apasionados(as)",
+    "descr": "Si los temas que tratamos te interesan y piensas que podrías aportar tus habilidades o talentos, no dudes en contactarnos."
+  },
+  "howYouCanHelp": "Cómo podrías ayudar",
+  "howYouCanHelpContent": [
+    {
+      "title": "Crear contenido",
+      "descr": "Queremos que nuestro trabajo llegue al mayor público posible. Por eso, producimos diseños, infografías, videos..."
+    },
+    {
+      "title": "Escribir articulos de opinión",
+      "descr": "Redactamos artículos de divulgación dirigidos al público en general."
+    },
+    {
+      "title": "Participar en la página web",
+      "descr": "Entre el código y el diseño, hay mucho por hacer 🤓 "
+    },
+    {
+      "title": "Comunicación",
+      "descr": "Deseaomos construir y ampliar nuestra red para transimitir nuestra pasión 🐛"
+    }
+  ],
+  "landing": {
+    "testYouKnowledge": "Pon a prueba tus conocimientos",
+    "aLittleQuestion": "Una pequeña pregunta...",
+    "question": "¿Cuántas especies de insectos comestibles hay en México ?",
+    "more": "Más sobre",
+    "check": "Verificar",
+    "congratulations": "Felicidades",
+    "tryAgain": "Volver a intentar",
+    "answerTrue": "Correcto: de hecho, hay más de 500",
+    "answerFalse": "Falso ! Puedes intentarlo de nuevo",
+    "whoAreWe": "¿Quiénes somos ?",
+    "whoAreWe1": "es producto de un equipo multidisciplinario apasionado por la entomología y los insectos comestibles.",
+    "whoAreWe2": "Nuestros esfuerzos están enfocados en gestar un medio que ahonde en la entomofagia, que recopile, genere y difunda esta información con integridad moral y un enfoque sustentable.",
+    "ourObjectives": "Nuestros objectivos",
+    "vulgarisation": "Divulgación científica",
+    "citizen": "Ciencia ciudadana",
+    "freeInfo": "Aceso a la información",
+    "vision": "Visión",
+    "vision1": "Creemos que la información científica debe ser de libre y fácil acceso para generar espacios de reflexión y debate.",
+    "vision2": "Nos interesa la inclusión y participación de la sociedad."
+  }
 }

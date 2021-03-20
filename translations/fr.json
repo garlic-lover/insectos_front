@@ -7,5 +7,72 @@
   "collaborate": "Collaborer",
   "wantToJoin": "Vous voulez participer ? Contactez-nous ",
   "homeTitle": "L'entomophagie, pourquoi pas ? ",
-  "source": "source"
+  "source": "source",
+  "blogSoon": "Nos premiers articles seront bientôt disponibles...",
+  "instructions": "Instructions",
+  "aboutTheMap": "A propos de la carte",
+  "underConstruct": "En constuction...",
+  "noSelectedState": "Aucun état sélectionné",
+  "state": "Etat",
+  "insectAdd": "Ajouter un insecte",
+  "availableSoon": "Bientôt disponible..",
+  "interestedByTheProject": "Intéressé-e par le projet ?",
+  "maybeYouCanJoin": "Tu peux te joindre à nous, toute aide est bienvenue !",
+  "welcomedContributions": "Contributions bienvenues",
+  "welcomed1": {
+    "title": "Bologistes",
+    "descr": "Dommaines d'intérêt : entomologie, ethnobiologie"
+  },
+  "welcomed2": {
+    "title": "Développeurs",
+    "descr": "Si l'open source t'intéresse"
+  },
+  "welcomed3": {
+    "title": "Designeurs-euses",
+    "descr": "Exprime ta créativité sur des thèmes innovants et engagés socialement"
+  },
+  "welcomed4": {
+    "title": "Apasionados(as)",
+    "descr": "Si les sujets que nous traitons t'intéressent et que tu penses que tu pourrais apporter tes compétences et talents, n'hésite pas à nous contacter"
+  },
+  "howYouCanHelp": "Comment tu pourrais aider",
+  "howYouCanHelpContent": [
+    {
+      "title": "Créer du contenu",
+      "descr": "Nous voulons toucher le public le plus large possible. Ainsi, nous produisons des infographies, des articles, des vidéos..."
+    },
+    {
+      "title": "Ecrire des articles d'opinion",
+      "descr": "Nous rédigeons des articles de vulgarisation scientifique dirigés au grand public."
+    },
+    {
+      "title": "Participer à la page web",
+      "descr": "Entre le code et le design, il y a beaucoup à faire 🤓 "
+    },
+    {
+      "title": "Communication",
+      "descr": "Nous souhaitons développer notre réseau pour transmettre notre passion 🐛"
+    }
+  ],
+  "landing": {
+    "testYouKnowledge": "Tester mes connaissances",
+    "aLittleQuestion": "Une petite question...",
+    "question": "Combien d'espèces d'insectes commestibles y a-t-il au Mexique ? ",
+    "more": "Plus sur",
+    "check": "Vérifier",
+    "congratulations": "Félicitations",
+    "tryAgain": "Réessayer",
+    "answerTrue": "Correct: en effet, il y en a plus de 500",
+    "answerFalse": "Faux ! Essayez de nouveau",
+    "whoAreWe": "Qui sommes-nous ? ",
+    "whoAreWe1": "est le fruit d'une équipe multidisciplinaire passionnée par l'entomologie et les insectes commestibles.",
+    "whoAreWe2": "Nos efforts visent à créer un média dédié à l'entomophagie, qui collecte, génère et diffuse ses informations avec une approche durable et éthique.",
+    "ourObjectives": "Nos objectifs",
+    "vulgarisation": "Vulgarisation scientifique",
+    "citizen": "Science citoyenne",
+    "freeInfo": "Accès à l'information",
+    "vision": "Vision",
+    "vision1": "Nous pensons que l'information scientifique doit être d'accès libre et facile pour générer des espaces de réflexion et de débat.",
+    "vision2": "Nous souhaitons l'inclusion et la participation de la société."
+  }
 }

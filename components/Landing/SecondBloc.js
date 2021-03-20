@@ -8,35 +8,34 @@ export default function SecondBloc({ t }) {
     <Wrapper>
       <Main>
         <Title className="hidden" data-scroll data-scroll-class="appear">
-          Nuestros objectivos
+          {t("landing").ourObjectives}
         </Title>
         <Grid>
           <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>
               <img src="/svg/lamp.svg" />
-              Divulgación científica
+              {t("landing").vulgarisation}
             </h4>
           </div>
           <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>
               <span className="lnr lnr-leaf" />
-              Ciencia ciudadana
+              {t("landing").citizen}
             </h4>
           </div>
           <div className="hidden" data-scroll data-scroll-class="appear">
             <h4>
               <span className="lnr lnr-chart-bars" />
-              Aceso a la información
+              {t("landing").freeInfo}
             </h4>
           </div>
         </Grid>
         <Title className="hidden" data-scroll data-scroll-class="appear">
-          Visión
+          {t("landing").vision}
         </Title>
         <SubTitle className="hidden" data-scroll data-scroll-class="appear">
-          Creemos que la información científica debe ser de libre y fácil acceso
-          para generar espacios de reflexión y debate. <br />
-          Nos interesa la inclusión y participación de la sociedad.
+          {t("landing").vision1} <br />
+          {t("landing").vision2}
         </SubTitle>
         <button
           onClick={() => {
@@ -46,10 +45,8 @@ export default function SecondBloc({ t }) {
           data-scroll
           data-scroll-class="appear"
         >
-          Colaborar
+          {t("collaborate")}
         </button>
-        {/* Para ello, la
-          participación de la sociedad es importante para generar conocimiento. */}
       </Main>
     </Wrapper>
   );

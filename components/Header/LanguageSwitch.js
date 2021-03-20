@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import useTranslate from "../../hooks/useTranslate";
 
-const theLanguages = { fr: "FR", en: "EN", es: "ES" };
+const theLanguages = { es: "ES", fr: "FR" };
 
 export default function LanguageSwitch() {
   const [languageSwitchOpened, languageSwitchOpenedChange] = useState(false);
