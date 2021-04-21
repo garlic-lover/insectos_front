@@ -75,9 +75,10 @@ export default function Header() {
 }
 
 const Container = styled.header`
-  background-color: ${(props) => props.theme.background};
-  // box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
-  height: 80px;
+  background-color: ${(props) => props.theme.main};
+  color: ${(props) => props.theme.background};
+  box-shadow: 0 2px 2px rgb(0 0 0 / 20%);
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +88,7 @@ const Container = styled.header`
   width: 100%;
   & section {
     position: relative;
-    width: 94%;
+    width: 97%;
     max-width: 1240px;
     display: flex;
     align-items: center;
@@ -96,7 +97,7 @@ const Container = styled.header`
   & h1 {
     position: absolute;
     left: 0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
     letter-spacing: 8px;
     font-weight: 200;
@@ -117,13 +118,13 @@ const Menu = styled.div`
   position: absolute;
   right: 0;
   display: flex;
-  color: rgba(162, 140, 56, 1);
+  color: ${(props) => props.theme.background};
   & a {
     color: inherit;
     text-decoration: inherit;
     margin-left: 12px;
-    font-size: 18px;
-    letter-spacing: 4px;
+    font-size: 17px;
+    letter-spacing: 1px;
   }
   & a:first:child {
     margin-left: 0;
@@ -137,11 +138,11 @@ const MenuItem = styled.a`
   transition: 0.3s;
   text-decoration: underline;
   cursor: pointer;
-  padding-bottom: 4px;
-  border-bottom: solid 2.5px
-    ${(props) => (props.isSelected ? props.theme.main : props.theme.background)};
+  padding-bottom: 2px;
+  border-bottom: solid 2px
+    ${(props) => (props.isSelected ? props.theme.background : props.theme.main)};
   &:hover {
-    border-bottom: solid 2.5px ${(props) => props.theme.main};
+    border-bottom: solid 2px ${(props) => props.theme.background};
   }
 `;
 

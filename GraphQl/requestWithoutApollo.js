@@ -1,7 +1,7 @@
 export default async function requestWithoutApollo(query, variables) {
   try {
     const url = "https://insectos-back.herokuapp.com/";
-    /* const url = "http://localhost:4000"; */
+    //  const url = "http://localhost:4000";
 
     let { errors, data } = await fetch(url, {
       method: "POST",

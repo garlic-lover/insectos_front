@@ -100,7 +100,7 @@ export default function Layout({ children }) {
     dispatch,
   } = useAppContext();
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (!theScroll) {
       const scroll = new LocomotiveScroll({
         el: document.querySelector("[data-scroll-container]"),
@@ -109,16 +109,16 @@ export default function Layout({ children }) {
       });
       dispatch({ type: "theScrollChange", theScroll: scroll });
     }
-  }, [theScroll]);
+  }, [theScroll]); */
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (theScroll && router.pathname === "article_add") {
       theScroll.destroy();
     } else if (theScroll) {
       theScroll.destroy();
       theScroll.init();
     }
-  }, [router.pathname]);
+  }, [router.pathname]); */
 
   return (
     <ThemeProvider theme={theme}>
@@ -126,7 +126,7 @@ export default function Layout({ children }) {
       <Main data-scroll data-scroll-container id="stick">
         <Header />
         <Container isHomePage={router.pathname === "/"}>{children}</Container>
-        <Footer />
+        {router.pathname !== "/db" && <Footer />}
       </Main>
       {/*       <ThemeChanger theme={theme} themeChange={themeChange} /> */}
     </ThemeProvider>
@@ -138,7 +138,7 @@ const Main = styled.div`
 `;
 
 const Container = styled.div`
-  padding-top: ${(props) => (props.isHomePage ? "" : "90px")};
+  padding-top: ${(props) => (props.isHomePage ? "" : "60px")};
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {

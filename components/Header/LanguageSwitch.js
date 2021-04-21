@@ -58,8 +58,8 @@ export default function LanguageSwitch() {
 const Wrapper = styled.div`
   display: flex;
   margin-left: 6px;
-  font-size: 18px;
-  letter-spacing: 4px;
+  font-size: 16px;
+  letter-spacing: 2px;
   position: relative;
   user-select: none;
   & p {
@@ -69,8 +69,7 @@ const Wrapper = styled.div`
     margin-left: 6px;
     height: 10px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(50%) sepia(77%) saturate(358%)
-      hue-rotate(10deg) brightness(95%) contrast(83%);
+    fill: ${(props) => props.theme.background};
   }
   & ul {
     position: absolute;

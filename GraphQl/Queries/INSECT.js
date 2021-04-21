@@ -1,8 +1,6 @@
-import { gql } from "@apollo/client";
-
-const INSECTS = gql`
-  query insects {
-    insects {
+const INSECT = `
+  query insect($specie : String) {
+    insect (specie:$specie) {
       order {
         main
         sub
@@ -17,8 +15,9 @@ const INSECTS = gql`
         clave
         _id
       }
+      notes
     }
   }
 `;
 
-export default INSECTS;
+export default INSECT;
