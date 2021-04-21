@@ -16,6 +16,9 @@ export default function MapPage() {
 
   return (
     <Wrapper>
+      <div>
+        <slider />
+      </div>
       <PageSelect>
         <nav>
           <PageOption
@@ -47,7 +50,7 @@ const Wrapper = styled.div`
   max-width: 1040px;
   margin: auto;
   min-height: calc(100vh - 150px);
-  margin-top: 30px;
+  margin-top: 10px;
   @media (max-width: 680px) {
     margin-top: 20px;
   }

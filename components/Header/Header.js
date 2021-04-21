@@ -77,7 +77,7 @@ export default function Header() {
 const Container = styled.header`
   background-color: ${(props) => props.theme.background};
   // box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
-  height: 90px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
