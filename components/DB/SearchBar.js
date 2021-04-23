@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { InputLabel, Select, MenuItem } from "@material-ui/core";
 
-export default function SearchBar() {
+export default function SearchBar({ filters }) {
   return (
     <Wrapper>
       <Title>Filter</Title>
@@ -9,11 +9,27 @@ export default function SearchBar() {
         <input placeholder="Search a specie" />
       </Search>
       <Filters>
-        <InputLabel id="orderSelect">Order</InputLabel>
-        <Select labelId="orderSelect" value="Coleoptera">
-          <MenuItem value="-">-</MenuItem>
-          <MenuItem value="Coleoptera">Coleoptera</MenuItem>
-        </Select>
+        {filters.map(({ value, change, label, options }) => {
+          return (
+            <div key={label}>
+              <InputLabel id={label}>{label}</InputLabel>
+              <StyledSelect
+                labelId={label}
+                value={value}
+                onChange={(e) => change(e.target.value)}
+              >
+                <MenuItem value="-">-</MenuItem>
+                {options.map(({ name, _id }) => {
+                  return (
+                    <MenuItem key={name} value={_id ? _id : name}>
+                      {name}
+                    </MenuItem>
+                  );
+                })}
+              </StyledSelect>
+            </div>
+          );
+        })}
       </Filters>
     </Wrapper>
   );
@@ -23,7 +39,7 @@ const Wrapper = styled.div`
   min-height: 100%;
   max-height: 100%;
   overflow: scroll;
-  width: 360px;
+  width: 280px;
   border-right: solid 1px;
 `;
 
@@ -55,4 +71,12 @@ const Search = styled.div`
 
 const Filters = styled.div`
   margin: 24px 12px 0;
+  & select {
+    margin-bottom: 12px;
+  }
+`;
+
+const StyledSelect = styled(Select)`
+  margin-bottom: 24px;
+  width: 200px;
 `;

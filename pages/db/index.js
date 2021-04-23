@@ -9,12 +9,18 @@ import Loader from "@components/DS/Loader";
 import useDBManage from "@components/DB/utils/useDBManage";
 
 export default function DB() {
-  const { loading, error, insects } = useDBManage();
+  const { loading, error, insects, filters } = useDBManage();
   return (
     <Wrapper>
-      <SearchBar />
+      <SearchBar filters={filters} />
       <Main>
-        {!insects ? <Loader /> : <List insects={insects} />}
+        {!insects ? (
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        ) : (
+          <List insects={insects} />
+        )}
         <Footer />
       </Main>
     </Wrapper>
@@ -24,6 +30,12 @@ export default function DB() {
 const Wrapper = styled.div`
   min-height: calc(100vh - 60px);
   display: flex;
+`;
+
+const LoaderWrapper = styled.div`
+  position: relative;
+  flex: 1;
+  height: calc(100vh - 92px);
 `;
 
 const Main = styled.div`

@@ -16,6 +16,12 @@ const INSECT = `
         _id
       }
       notes
+      eatableStates
+      isSold
+      isAutoConsummed
+      isComestible
+      isMedicinal
+      isTradicional
     }
   }
 `;

@@ -4,41 +4,55 @@ import styled from "styled-components";
 export default function List({ insects }) {
   return (
     <Wrapper>
-      {insects.map(
-        ({ order, family, specie, commonNames, estados, references }) => {
-          return (
-            <InsectCard key={commonNames}>
-              <FirstLine>
-                <img
-                  src={`/icons/${
-                    order.sub?.replace(" ", "") === "Heteroptera"
-                      ? "heteroptera"
-                      : order.main.toLowerCase().replace(" ", "")
-                  }.svg`}
-                />
-                <div>
-                  <h4>{specie}</h4>
-                  <h5>
-                    {order.main} {order.sub && `(${order.sub})`}
-                  </h5>
-                </div>
-              </FirstLine>
-              <p>{family ? family : "No familia registrada"}</p>
-              <p>Nombres communes : {commonNames}</p>
-              <p>
-                Reportado en {estados.length} estados ({references.length}{" "}
-                fuente{references.length > 1 && "s"})
-              </p>
-              <Link href={`/db/${specie}`}>Mas informacion ></Link>
-            </InsectCard>
-          );
-        }
-      )}
+      {insects.length === 0 && <NoInsect>No insecto encontrado...</NoInsect>}
+      <Grid>
+        {insects.map(
+          ({ order, family, specie, commonNames, estados, references }) => {
+            return (
+              <InsectCard key={specie}>
+                <FirstLine>
+                  <img
+                    src={`/icons/${
+                      order.sub?.replace(" ", "") === "Heteroptera"
+                        ? "heteroptera"
+                        : order.main.toLowerCase().replace(" ", "")
+                    }.svg`}
+                  />
+                  <div>
+                    <h4>{specie}</h4>
+                    <h5>
+                      {order.main} {order.sub && `(${order.sub})`}
+                    </h5>
+                  </div>
+                </FirstLine>
+                <p>{family ? family : "No familia registrada"}</p>
+                <p>Nombres communes : {commonNames}</p>
+                <p>
+                  Reportado en {estados.length} estados ({references.length}{" "}
+                  fuente{references.length > 1 && "s"})
+                </p>
+                <Link href={`/db/${specie}`}>Mas informacion ></Link>
+              </InsectCard>
+            );
+          }
+        )}
+      </Grid>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
+  min-height: calc(100vh - 92px - 96px);
+`;
+
+const NoInsect = styled.p`
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const Grid = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 12px;

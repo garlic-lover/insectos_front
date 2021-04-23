@@ -23,9 +23,34 @@ export default function Header() {
     <>
       <Container data-scroll data-scroll-sticky data-scroll-target="#stick">
         <section>
-          <Link href="/">
-            <h1>INSECTIVORA</h1>
-          </Link>
+          <Menu>
+            <Link href="/">
+              <h1>
+                <span className="lnr lnr-dinner" />
+                INSECTIVORA
+                <span className="lnr lnr-bug" />
+              </h1>
+            </Link>
+            <Link href="/mapa">
+              <MenuItem isSelected={router.pathname === "/mapa"}>
+                {t("map")}
+              </MenuItem>
+            </Link>
+            <Link href="/db">
+              <MenuItem isSelected={router.pathname === "/db"}>
+                {t("db")}
+              </MenuItem>
+            </Link>
+            <Link href="/facts">
+              <MenuItem isSelected={router.pathname === "/facts"}>
+                {t("facts")}
+              </MenuItem>
+            </Link>
+            <Link href="/blog">
+              <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
+            </Link>
+          </Menu>
+
           <Hamburger
             isOpened={menuOpened}
             isOpenedChange={(value) => {
@@ -41,24 +66,17 @@ export default function Header() {
             }}
           />
           <Menu>
-            <Link href="/mapa">
-              <MenuItem isSelected={router.pathname === "/mapa"}>
-                {t("map")}
-              </MenuItem>
-            </Link>
-            <Link href="/facts">
-              <MenuItem isSelected={router.pathname === "/facts"}>
-                {t("facts")}
-              </MenuItem>
-            </Link>
-            <Link href="/blog">
-              <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
-            </Link>
-            <Link href="/colaborar">
+            <button onClick={() => alert("Disponible pronto...")}>
+              Propose an insect
+            </button>
+            <button onClick={() => router.push("/colaborar")}>
+              Join the project
+            </button>
+            {/*  <Link href="/colaborar">
               <MenuItem isSelected={router.pathname === "/colaborar"}>
                 {t("collaborate")}
               </MenuItem>
-            </Link>
+            </Link> */}
             <LanguageSwitch />
           </Menu>
         </section>
@@ -88,19 +106,24 @@ const Container = styled.header`
   width: 100%;
   & section {
     position: relative;
-    width: 97%;
-    max-width: 1240px;
+    padding: 0 12px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   & h1 {
-    position: absolute;
-    left: 0;
     font-size: 1.6rem;
     cursor: pointer;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     font-weight: 200;
+    margin: 0;
+    & span {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+    }
+    margin-left: -10px;
   }
   @media (max-width: 680px) {
     box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
@@ -109,15 +132,14 @@ const Container = styled.header`
     height: 70px;
     & h1 {
       font-size: 1.6rem;
-      letter-spacing: 6px;
+      letter-spacing: 2px;
     }
   }
 `;
 
 const Menu = styled.div`
-  position: absolute;
-  right: 0;
   display: flex;
+  align-items: center;
   color: ${(props) => props.theme.background};
   & a {
     color: inherit;
@@ -129,6 +151,23 @@ const Menu = styled.div`
   & a:first:child {
     margin-left: 0;
   }
+  & button {
+    border: solid 1px;
+    border-radius: 4px;
+    padding: 6px 16px;
+    margin-left: 12px;
+    color: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.main};
+    font-size: 16px;
+    transition: ease 0.35s;
+  }
+  & button:hover {
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.main};
+  }
+  & button:active {
+    transform: translateY(1px);
+  }
   @media (max-width: 680px) {
     display: none;
   }
@@ -138,6 +177,7 @@ const MenuItem = styled.a`
   transition: 0.3s;
   text-decoration: underline;
   cursor: pointer;
+  margin-top: 2px;
   padding-bottom: 2px;
   border-bottom: solid 2px
     ${(props) => (props.isSelected ? props.theme.background : props.theme.main)};

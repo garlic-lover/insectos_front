@@ -2,13 +2,13 @@ import { createHttpLink, ApolloClient, InMemoryCache } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
 
-const httpLink = createHttpLink({
-  uri: "http://localhost:4000/",
-});
-
 /* const httpLink = createHttpLink({
-  uri: "https://insectos-back.herokuapp.com/",
+  uri: "http://localhost:4000/",
 }); */
+
+const httpLink = createHttpLink({
+  uri: "https://insectos-back.herokuapp.com/",
+});
 
 const authLink = setContext(async (_, { headers }) => {
   // get the authentication token from local storage if it exists

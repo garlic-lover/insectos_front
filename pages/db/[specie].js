@@ -15,6 +15,12 @@ export default function Specie({ insect }) {
     references,
     specie,
     notes,
+    eatableStates,
+    isSold,
+    isAutoConsummed,
+    isComestible,
+    isMedicinal,
+    isTradicional,
   } = insect;
 
   return (
@@ -22,6 +28,19 @@ export default function Specie({ insect }) {
       <h2>{specie}</h2>
       <p>{commonNames}</p>
       <p>Order : {order?.main}</p>
+      <p>Familia : {family}</p>
+      <h3>Notes</h3>
+      <p>{notes ? notes : "No notes"}</p>
+      <h3>Referencias bibliograficas:</h3>
+      <ul>
+        {references.map(({ clave }) => {
+          return <li key={clave}>{clave}</li>;
+        })}
+      </ul>
+      <h3>Estados : </h3>
+      {estados.map(({ name }) => {
+        return <li key={name}>{name}</li>;
+      })}
     </Wrapper>
   );
 }
@@ -35,6 +54,17 @@ const Wrapper = styled.div`
   & h2 {
     font-size: 32px;
     font-style: italic;
+    margin-bottom: 32px;
+  }
+  & h3 {
+    margin: 12px 0;
+  }
+  & p {
+    margin: 0;
+    margin-bottom: 12px;
+  }
+  & li {
+    line-height: 1.5;
   }
 `;
 

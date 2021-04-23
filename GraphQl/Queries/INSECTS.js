@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const INSECTS = gql`
-  query insects {
-    insects {
+  query insects($filter: FilterInput) {
+    insects(filter: $filter) {
       order {
         main
         sub

@@ -8,43 +8,25 @@ import ThirdBloc from "./ThirdBloc";
 
 import useRefreshScroll from "@hooks/useRefreshScroll";
 import useWindowSize from "@hooks/useWindowSize";
-import useAppContext from "@hooks/useAppContext";
 
 export default function Container({ t }) {
   useRefreshScroll();
   const { width } = useWindowSize();
 
   const quizRef = useRef();
-
-  const {
-    state: { theScroll },
-  } = useAppContext();
-
-  const quizz = document.getElementById("quizzContainer");
-  const about = document.getElementById("about");
+  const aboutRef = useRef();
 
   function scrollToQuiz() {
-    theScroll.scrollTo(quizz, {
-      offset: width > 680 ? -90 : -60,
-      duration: 750,
-    });
+    quizRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
   function scrollToAbout() {
-    theScroll.scrollTo(about, {
-      offset: width > 680 ? -90 : -60,
-      duration: 750,
-    });
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
-    <Wrapper data-scroll-container id="cont">
-      <Chapulines
-        data-scroll
-        data-scroll-sticky
-        data-scroll-target="#cont"
-        isMobile={width < 680}
-      >
+    <Wrapper>
+      <Chapulines isMobile={width < 680}>
         <Image
           layout="fill"
           priority={true}
@@ -52,7 +34,7 @@ export default function Container({ t }) {
           alt="chapulines en el mercado"
         />
       </Chapulines>
-      <Title data-scroll data-scroll-speed="-5">
+      <Title>
         <section>
           <div>
             <span className="lnr lnr-bug" />
@@ -73,7 +55,7 @@ export default function Container({ t }) {
       </Title>
       <BlocsWrapper>
         <FirstBloc t={t} quizRef={quizRef} scrollToAbout={scrollToAbout} />
-        <ThirdBloc t={t} />
+        <ThirdBloc t={t} aboutRef={aboutRef} />
         <SecondBloc t={t} />
       </BlocsWrapper>
     </Wrapper>
@@ -109,7 +91,7 @@ const Chapulines = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: ${(props) => (props.isMobile ? "1" : "-1")};
+
   & h2 {
     margin-top: -90px;
     z-index: 10;
