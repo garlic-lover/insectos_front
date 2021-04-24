@@ -142,7 +142,7 @@ const Container = styled.div`
   max-width: 100% !important;
   overflow-x: hidden !important;
   @media (max-width: 680px) {
-    padding-top: ${(props) => (props.isHomePage ? "" : "70px")};
+    padding-top: ${(props) => (props.isHomePage ? "" : "60px")};
   }
 `;
 

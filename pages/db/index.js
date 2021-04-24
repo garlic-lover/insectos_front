@@ -30,6 +30,9 @@ export default function DB() {
 const Wrapper = styled.div`
   min-height: calc(100vh - 60px);
   display: flex;
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
 `;
 
 const LoaderWrapper = styled.div`
@@ -44,4 +47,7 @@ const Main = styled.div`
   flex: 1;
   height: calc(100vh - 92px);
   overflow: scroll;
+  @media (max-width: 680px) {
+    padding-top: 0px;
+  }
 `;

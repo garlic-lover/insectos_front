@@ -21,8 +21,15 @@ export default function Header() {
 
   return (
     <>
-      <Container data-scroll data-scroll-sticky data-scroll-target="#stick">
+      <Container>
         <section>
+          <Link href="/">
+            <SmallTitle>
+              <span className="lnr lnr-dinner" />
+              INSECTIVORA
+              <span className="lnr lnr-bug" />
+            </SmallTitle>
+          </Link>
           <Menu>
             <Link href="/">
               <h1>
@@ -50,7 +57,6 @@ export default function Header() {
               <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
             </Link>
           </Menu>
-
           <Hamburger
             isOpened={menuOpened}
             isOpenedChange={(value) => {
@@ -125,15 +131,23 @@ const Container = styled.header`
     }
     margin-left: -10px;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 1096px) {
     box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
     width: 100%;
-    background-color: ${(props) => props.theme.background};
-    height: 70px;
-    & h1 {
-      font-size: 1.6rem;
-      letter-spacing: 2px;
+    & section {
+      padding: 0 6px;
     }
+  }
+`;
+
+const SmallTitle = styled.h1`
+  font-size: 1.5rem !important;
+  letter-spacing: 2px;
+  @media (max-width: 340px) {
+    font-size: 1.3rem !important;
+  }
+  @media (min-width: 1096px) {
+    display: none;
   }
 `;
 
@@ -168,7 +182,7 @@ const Menu = styled.div`
   & button:active {
     transform: translateY(1px);
   }
-  @media (max-width: 680px) {
+  @media (max-width: 1096px) {
     display: none;
   }
 `;

@@ -47,7 +47,7 @@ const Wrapper = styled.div`
 
 const NoInsect = styled.p`
   position: absolute;
-  top: 120px;
+  top: 72px;
   left: 50%;
   transform: translateX(-50%);
 `;
@@ -59,6 +59,12 @@ const Grid = styled.ul`
   row-gap: 12px;
   margin-bottom: 32px;
   padding: 0 16px;
+  @media (max-width: 972px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const InsectCard = styled.li`

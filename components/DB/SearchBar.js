@@ -1,14 +1,22 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { InputLabel, Select, MenuItem } from "@material-ui/core";
 
 export default function SearchBar({ filters }) {
+  const [filtersDisplay, filtersDisplayChange] = useState(false);
+
+  function handleToggleFilterDisplay() {
+    filtersDisplayChange(!filtersDisplay);
+  }
+
   return (
     <Wrapper>
       <Title>Filter</Title>
       <Search>
-        <input placeholder="Search a specie" />
+        <input placeholder="Search a specie" />{" "}
+        <span className="lnr lnr-funnel" onClick={handleToggleFilterDisplay} />
       </Search>
-      <Filters>
+      <Filters filtersDisplay={filtersDisplay}>
         {filters.map(({ value, change, label, options }) => {
           return (
             <div key={label}>
@@ -41,6 +49,9 @@ const Wrapper = styled.div`
   overflow: scroll;
   width: 280px;
   border-right: solid 1px;
+  @media (max-width: 680px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.div`
@@ -51,6 +62,9 @@ const Title = styled.div`
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
+  @media (max-width: 680px) {
+    display: none;
+  }
 `;
 
 const Search = styled.div`
@@ -58,6 +72,11 @@ const Search = styled.div`
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%);
   padding: 12px 20px;
   margin: 12px;
+  display: flex;
+  flex: 1;
+  & span {
+    font-size: 24px;
+  }
   &:hover {
     box-shadow: 0 3px 8px 0 rgb(0 0 0 / 16%);
   }
@@ -67,12 +86,20 @@ const Search = styled.div`
   & input::placeholder {
     color: #d3d5d6;
   }
+  @media (min-width: 680px) {
+    & span {
+      display: none;
+    }
+  }
 `;
 
 const Filters = styled.div`
   margin: 24px 12px 0;
   & select {
     margin-bottom: 12px;
+  }
+  @media (max-width: 680px) {
+    display: ${(props) => (props.filtersDisplay ? "" : "none")};
   }
 `;
 
