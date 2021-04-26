@@ -17,6 +17,16 @@ export default function ResponsiveMenu({ isOpened, close, router, t }) {
             {t("map")}
           </MenuItem>
         </Link>
+        <Link href="/db">
+          <MenuItem
+            onClick={() => {
+              close();
+            }}
+            isSelected={router.pathname === "/db"}
+          >
+            {t("db")}
+          </MenuItem>
+        </Link>
         <Link href="/facts">
           <MenuItem
             onClick={() => {

@@ -81,7 +81,7 @@ const Wrapper = styled.div`
     margin-top: 10px;
     cursor: pointer;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 1096px) {
     margin-left: 0px;
     font-size: 20px;
     & img {

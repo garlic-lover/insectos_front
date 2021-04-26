@@ -1,10 +1,16 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+import useTranslate from "@hooks/useTranslate";
+
 export default function List({ insects }) {
+  const { t } = useTranslate();
+
   return (
     <Wrapper>
-      {insects.length === 0 && <NoInsect>No insecto encontrado...</NoInsect>}
+      {insects.length === 0 && (
+        <NoInsect>{t("dbPage").noInsectFound}...</NoInsect>
+      )}
       <Grid>
         {insects.map(
           ({ order, family, specie, commonNames, estados, references }) => {
@@ -26,12 +32,18 @@ export default function List({ insects }) {
                   </div>
                 </FirstLine>
                 <p>{family ? family : "No familia registrada"}</p>
-                <p>Nombres communes : {commonNames}</p>
                 <p>
-                  Reportado en {estados.length} estados ({references.length}{" "}
-                  fuente{references.length > 1 && "s"})
+                  {t("dbPage").commonNames} : {commonNames}
                 </p>
-                <Link href={`/db/${specie}`}>Mas informacion ></Link>
+                <p>
+                  {t("dbPage").reportedIn} {estados.length} {t("dbPage").state}
+                  {estados.length > 1 && "s"} ({references.length}{" "}
+                  {t("dbPage").source}
+                  {references.length > 1 && "s"})
+                </p>
+                <Link href={`/db/${specie}`}>{`${
+                  t("dbPage").moreInfo
+                } >`}</Link>
               </InsectCard>
             );
           }

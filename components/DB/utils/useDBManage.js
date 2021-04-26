@@ -3,9 +3,35 @@ import INSECTS from "@GraphQl/Queries/INSECTS";
 import { useState } from "react";
 
 const orderOptions = [
+  { name: "Archaeognatha" },
+  { name: "Blattodea" },
   { name: "Coleoptera" },
+  { name: "Dermaptera" },
+  { name: "Diptera" },
+  { name: "Embioptera" },
+  { name: "Ephemeroptera" },
+  { name: "Grylloblattodea" },
+  { name: "Hemiptera" },
   { name: "Hymenoptera" },
+  { name: "Lepidoptera" },
+  { name: "Mantophasmatodea" },
+  { name: "Mantodea" },
+  { name: "Mecoptera" },
+  { name: "Megaloptera" },
+  { name: "Neuroptera" },
+  { name: "Odonata" },
   { name: "Orthoptera" },
+  { name: "Phasmatodea" },
+  { name: "Phthiraptera" },
+  { name: "Plecoptera" },
+  { name: "Psocoptera" },
+  { name: "Raphidioptera" },
+  { name: "Siphonaptera" },
+  { name: "Strepsiptera" },
+  { name: "Thysanoptera" },
+  { name: "Thysanura" },
+  { name: "Trichoptera" },
+  { name: "Zoraptera" },
 ];
 
 const ESTADOS = gql`
@@ -42,5 +68,10 @@ export default function useDBManage() {
     },
   ];
 
-  return { loading, error, insects: data?.insects, filters };
+  function filtersInit() {
+    orderChange("-");
+    estadoChange("-");
+  }
+
+  return { loading, error, insects: data?.insects, filters, filtersInit };
 }

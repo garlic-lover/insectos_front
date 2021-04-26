@@ -1,8 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { InputLabel, Select, MenuItem } from "@material-ui/core";
+import { InputLabel, Select, MenuItem, Button } from "@material-ui/core";
 
-export default function SearchBar({ filters }) {
+import useTranslate from "@hooks/useTranslate";
+
+export default function SearchBar({ filters, filtersInit }) {
+  const { t } = useTranslate();
   const [filtersDisplay, filtersDisplayChange] = useState(false);
 
   function handleToggleFilterDisplay() {
@@ -38,6 +41,13 @@ export default function SearchBar({ filters }) {
             </div>
           );
         })}
+        <ResetButton
+          variant="outlined"
+          disabled={filters[0].value === "-" && filters[1].value === "-"}
+          onClick={filtersInit}
+        >
+          {t("dbPage").initFilters}
+        </ResetButton>
       </Filters>
     </Wrapper>
   );
@@ -106,4 +116,8 @@ const Filters = styled.div`
 const StyledSelect = styled(Select)`
   margin-bottom: 24px;
   width: 200px;
+`;
+
+const ResetButton = styled(Button)`
+  font-family: OpenSans;
 `;

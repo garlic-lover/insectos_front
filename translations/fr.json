@@ -5,6 +5,8 @@
   "map": "Carte",
   "home": "Accueil",
   "db": "Base de données",
+  "proposeAnInsect": "Ajouter un insecte",
+  "joinTheProject": "Nous rejoindre",
   "collaborate": "Collaborer",
   "wantToJoin": "Vous voulez participer ? Contactez-nous ",
   "homeTitle": "L'entomophagie, pourquoi pas ? ",
@@ -75,5 +77,14 @@
     "vision": "Vision",
     "vision1": "Nous pensons que l'information scientifique doit être d'accès libre et facile pour générer des espaces de réflexion et de débat.",
     "vision2": "Nous souhaitons l'inclusion et la participation de la société."
+  },
+  "dbPage": {
+    "noInsectFound": "Aucun insecte trouvé",
+    "commonNames": "Noms communs",
+    "reportedIn": "Reportés dans",
+    "state": "état",
+    "source": "source",
+    "moreInfo": "Plus d'information",
+    "initFilters": "Réinitialiser les filtres"
   }
 }

@@ -4,6 +4,8 @@
   "facts": "Datos curiosos",
   "map": "Mapa",
   "db": "Base de datos",
+  "proposeAnInsect": "Agregar un insecto",
+  "joinTheProject": "Únete",
   "home": "Home",
   "collaborate": "Colaborar",
   "wantToJoin": "Quieres participar en el proyecto ? ¡Contáctanos!",
@@ -75,5 +77,14 @@
     "vision": "Visión",
     "vision1": "Creemos que la información científica debe ser de libre y fácil acceso para generar espacios de reflexión y debate.",
     "vision2": "Nos interesa la inclusión y participación de la sociedad."
+  },
+  "dbPage": {
+    "noInsectFound": "No insecto encontrado",
+    "commonNames": "Nombres communes",
+    "reportedIn": "Reportado en",
+    "state": "estado",
+    "source": "fuente",
+    "moreInfo": "Mas informacion",
+    "initFilters": "Reiniciar filtros"
   }
 }

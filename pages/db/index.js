@@ -9,12 +9,14 @@ import Loader from "@components/DS/Loader";
 import useDBManage from "@components/DB/utils/useDBManage";
 
 export default function DB() {
-  const { loading, error, insects, filters } = useDBManage();
+  const { loading, error, insects, filters, filtersInit } = useDBManage();
   return (
     <Wrapper>
-      <SearchBar filters={filters} />
+      <SearchBar filters={filters} filtersInit={filtersInit} />
       <Main>
-        {!insects ? (
+        {error ? (
+          "Error"
+        ) : !insects ? (
           <LoaderWrapper>
             <Loader />
           </LoaderWrapper>

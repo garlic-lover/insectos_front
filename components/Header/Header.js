@@ -73,10 +73,10 @@ export default function Header() {
           />
           <Menu>
             <button onClick={() => alert("Disponible pronto...")}>
-              Propose an insect
+              {t("proposeAnInsect")}
             </button>
             <button onClick={() => router.push("/colaborar")}>
-              Join the project
+              {t("joinTheProject")}
             </button>
             {/*  <Link href="/colaborar">
               <MenuItem isSelected={router.pathname === "/colaborar"}>
