@@ -7,33 +7,29 @@ export default function SecondBloc({ t }) {
   return (
     <Wrapper>
       <Main>
-        <Title className="hidden" data-scroll data-scroll-class="appear">
-          {t("landing").ourObjectives}
-        </Title>
+        <Title>{t("landing").ourObjectives}</Title>
         <Grid>
-          <div className="hidden" data-scroll data-scroll-class="appear">
+          <div>
             <h4>
               <img src="/svg/lamp.svg" />
               {t("landing").vulgarisation}
             </h4>
           </div>
-          <div className="hidden" data-scroll data-scroll-class="appear">
+          <div>
             <h4>
               <span className="lnr lnr-leaf" />
               {t("landing").citizen}
             </h4>
           </div>
-          <div className="hidden" data-scroll data-scroll-class="appear">
+          <div>
             <h4>
               <span className="lnr lnr-chart-bars" />
               {t("landing").freeInfo}
             </h4>
           </div>
         </Grid>
-        <Title className="hidden" data-scroll data-scroll-class="appear">
-          {t("landing").vision}
-        </Title>
-        <SubTitle className="hidden" data-scroll data-scroll-class="appear">
+        <Title>{t("landing").vision}</Title>
+        <SubTitle>
           {t("landing").vision1} <br />
           {t("landing").vision2}
         </SubTitle>

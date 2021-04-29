@@ -18,8 +18,8 @@ export default function Hamburger({ isOpened, isOpenedChange }) {
 const MenuIcon = styled.div`
   display: block;
   position: absolute;
-  top: 2px;
-  right: 3px;
+  top: calc(50% + 2px);
+  right: 6px;
   transform: translateY(-50%);
   z-index: 11;
   -webkit-user-select: none;
@@ -36,7 +36,7 @@ const MenuIcon = styled.div`
     z-index: 2;
     -webkit-touch-callout: none;
   }
-  @media (min-width: 680px) {
+  @media (min-width: 1096px) {
     display: none;
   }
 `;
@@ -48,7 +48,7 @@ const Line = styled.span`
   margin-bottom: 5px;
   position: relative;
   background: ${(props) =>
-    props.opened ? props.theme.background : props.theme.main};
+    props.opened ? props.theme.background : props.theme.background};
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;

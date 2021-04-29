@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-export default function ThirdBloc({ t }) {
+export default function ThirdBloc({ t, aboutRef }) {
   return (
-    <Wrapper id="about">
+    <Wrapper ref={aboutRef} id="about">
       <section>
-        <Title className="hidden" data-scroll data-scroll-class="appear">
-          {t("landing").whoAreWe}
-        </Title>
-        <p className="hidden" data-scroll data-scroll-class="appear">
+        <Title>{t("landing").whoAreWe}</Title>
+        <p>
           <span>Insectívora</span> {t("landing").whoAreWe1}
           <br />
           {t("landing").whoAreWe2}
@@ -23,7 +21,6 @@ const Wrapper = styled.div`
     width: 94%;
     max-width: 1040px;
     margin: auto;
-
     text-align: center;
     padding-top: 60px;
   }

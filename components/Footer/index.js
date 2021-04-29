@@ -18,8 +18,8 @@ export default function Footer() {
 }
 
 const Wrapper = styled.footer`
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;

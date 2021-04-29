@@ -21,11 +21,42 @@ export default function Header() {
 
   return (
     <>
-      <Container data-scroll data-scroll-sticky data-scroll-target="#stick">
+      <Container>
         <section>
           <Link href="/">
-            <h1>INSECTIVORA</h1>
+            <SmallTitle>
+              <span className="lnr lnr-dinner" />
+              INSECTIVORA
+              <span className="lnr lnr-bug" />
+            </SmallTitle>
           </Link>
+          <Menu>
+            <Link href="/">
+              <h1>
+                <span className="lnr lnr-dinner" />
+                INSECTIVORA
+                <span className="lnr lnr-bug" />
+              </h1>
+            </Link>
+            <Link href="/mapa">
+              <MenuItem isSelected={router.pathname === "/mapa"}>
+                {t("map")}
+              </MenuItem>
+            </Link>
+            <Link href="/db">
+              <MenuItem isSelected={router.pathname === "/db"}>
+                {t("db")}
+              </MenuItem>
+            </Link>
+            <Link href="/facts">
+              <MenuItem isSelected={router.pathname === "/facts"}>
+                {t("facts")}
+              </MenuItem>
+            </Link>
+            <Link href="/blog">
+              <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
+            </Link>
+          </Menu>
           <Hamburger
             isOpened={menuOpened}
             isOpenedChange={(value) => {
@@ -41,24 +72,17 @@ export default function Header() {
             }}
           />
           <Menu>
-            <Link href="/mapa">
-              <MenuItem isSelected={router.pathname === "/mapa"}>
-                {t("map")}
-              </MenuItem>
-            </Link>
-            <Link href="/facts">
-              <MenuItem isSelected={router.pathname === "/facts"}>
-                {t("facts")}
-              </MenuItem>
-            </Link>
-            <Link href="/blog">
-              <MenuItem isSelected={router.pathname === "/blog"}>Blog</MenuItem>
-            </Link>
-            <Link href="/colaborar">
+            <button onClick={() => alert("Disponible pronto...")}>
+              {t("proposeAnInsect")}
+            </button>
+            <button onClick={() => router.push("/colaborar")}>
+              {t("joinTheProject")}
+            </button>
+            {/*  <Link href="/colaborar">
               <MenuItem isSelected={router.pathname === "/colaborar"}>
                 {t("collaborate")}
               </MenuItem>
-            </Link>
+            </Link> */}
             <LanguageSwitch />
           </Menu>
         </section>
@@ -75,9 +99,10 @@ export default function Header() {
 }
 
 const Container = styled.header`
-  background-color: ${(props) => props.theme.background};
-  // box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
-  height: 80px;
+  background-color: ${(props) => props.theme.main};
+  color: ${(props) => props.theme.background};
+  box-shadow: 0 2px 2px rgb(0 0 0 / 20%);
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,48 +112,77 @@ const Container = styled.header`
   width: 100%;
   & section {
     position: relative;
-    width: 94%;
-    max-width: 1240px;
+    padding: 0 12px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   & h1 {
-    position: absolute;
-    left: 0;
-    font-size: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     font-weight: 200;
+    margin: 0;
+    & span {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+    }
+    margin-left: -10px;
   }
-  @media (max-width: 680px) {
+  @media (max-width: 1096px) {
     box-shadow: 0 8px 24px rgba(163, 86, 57, 0.1);
     width: 100%;
-    background-color: ${(props) => props.theme.background};
-    height: 70px;
-    & h1 {
-      font-size: 1.6rem;
-      letter-spacing: 6px;
+    & section {
+      padding: 0 6px;
     }
   }
 `;
 
+const SmallTitle = styled.h1`
+  font-size: 1.5rem !important;
+  letter-spacing: 2px;
+  @media (max-width: 340px) {
+    font-size: 1.3rem !important;
+  }
+  @media (min-width: 1096px) {
+    display: none;
+  }
+`;
+
 const Menu = styled.div`
-  position: absolute;
-  right: 0;
   display: flex;
-  color: rgba(162, 140, 56, 1);
+  align-items: center;
+  color: ${(props) => props.theme.background};
   & a {
     color: inherit;
     text-decoration: inherit;
     margin-left: 12px;
-    font-size: 18px;
-    letter-spacing: 4px;
+    font-size: 17px;
+    letter-spacing: 1px;
   }
   & a:first:child {
     margin-left: 0;
   }
-  @media (max-width: 680px) {
+  & button {
+    border: solid 1px;
+    border-radius: 4px;
+    padding: 6px 16px;
+    margin-left: 12px;
+    color: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.main};
+    font-size: 16px;
+    transition: ease 0.35s;
+  }
+  & button:hover {
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.main};
+  }
+  & button:active {
+    transform: translateY(1px);
+  }
+  @media (max-width: 1096px) {
     display: none;
   }
 `;
@@ -137,11 +191,12 @@ const MenuItem = styled.a`
   transition: 0.3s;
   text-decoration: underline;
   cursor: pointer;
-  padding-bottom: 4px;
-  border-bottom: solid 2.5px
-    ${(props) => (props.isSelected ? props.theme.main : props.theme.background)};
+  margin-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: solid 2px
+    ${(props) => (props.isSelected ? props.theme.background : props.theme.main)};
   &:hover {
-    border-bottom: solid 2.5px ${(props) => props.theme.main};
+    border-bottom: solid 2px ${(props) => props.theme.background};
   }
 `;
 

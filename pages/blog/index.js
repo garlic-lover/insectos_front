@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import Loader from "../../components/DS/Loader";
 
-import useAppContext from "@hooks/useAppContext";
 import useTranslate from "@hooks/useTranslate";
 
 import { useQuery } from "@apollo/client";
@@ -15,15 +14,6 @@ export default function Blog() {
   const { data } = useQuery(BLOG_ARTICLES);
   /* More code */
   const router = useRouter();
-  const {
-    state: { theScroll },
-  } = useAppContext();
-
-  useEffect(() => {
-    if (data) {
-      theScroll.update();
-    }
-  }, [data]);
 
   if (!data) {
     return (

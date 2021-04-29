@@ -1,11 +1,8 @@
-import { useRouter } from "next/router";
 import styled from "styled-components";
 
 import Quiz from "./Quiz";
 
 export default function FirstBloc({ t, quizRef, scrollToAbout }) {
-  const router = useRouter();
-
   return (
     <Back id="quizzContainer" ref={quizRef}>
       <Wrapper>
