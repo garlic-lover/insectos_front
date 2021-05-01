@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { PageTransition } from "next-page-transitions";
 
 import {
   createMuiTheme,
@@ -41,8 +42,12 @@ export default function Layout({ children }) {
       <ThemeProvider theme={theme}>
         <GlobalStyles menuOpened={menuOpened} />
         <Main data-scroll data-scroll-container id="stick">
-          <Header />
-          <Container isHomePage={router.pathname === "/"}>{children}</Container>
+          <Header />{" "}
+          <PageTransition timeout={500} classNames="page-transition">
+            <Container isHomePage={router.pathname === "/"}>
+              {children}
+            </Container>
+          </PageTransition>
           {router.pathname !== "/db" && <Footer />}
         </Main>
       </ThemeProvider>
