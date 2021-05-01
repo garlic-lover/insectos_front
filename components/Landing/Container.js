@@ -76,6 +76,8 @@ const Wrapper = styled.div`
   }
 `;
 
+const FirstWrapper = styled.div``;
+
 const BlocsWrapper = styled.div`
   background-color: ${(props) => props.theme.background};
 `;

@@ -3,69 +3,59 @@ import styled from "styled-components";
 import request from "@GraphQl/requestWithoutApollo";
 import INSECT from "@GraphQl/Queries/INSECT";
 
+import FamilyBloc from "@components/InsectPage/FamilyBloc";
+import BiblioBloc from "@components/InsectPage/BiblioBloc";
+import CharacteristicsBloc from "@components/InsectPage/CharacteristicsBloc";
+import StatesBloc from "@components/InsectPage/StatesBloc";
+
 export default function Specie({ insect }) {
   if (!insect) {
     return <Wrapper>Error : insect not found</Wrapper>;
   }
-  const {
-    order,
-    commonNames,
-    estados,
-    family,
-    references,
-    specie,
-    notes,
-    eatableStates,
-    isSold,
-    isAutoConsummed,
-    isComestible,
-    isMedicinal,
-    isTradicional,
-  } = insect;
+  const { estados, references, specie, notes } = insect;
 
   return (
     <Wrapper>
       <h2>{specie}</h2>
-      <p>{commonNames}</p>
-      <p>Order : {order?.main}</p>
-      <p>Familia : {family}</p>
+      <FamilyBloc insect={insect} />
       <h3>Notes</h3>
-      <p>{notes ? notes : "No notes"}</p>
-      <h3>Referencias bibliograficas:</h3>
-      <ul>
-        {references.map(({ clave }) => {
-          return <li key={clave}>{clave}</li>;
-        })}
-      </ul>
-      <h3>Estados : </h3>
-      {estados.map(({ name }) => {
-        return <li key={name}>{name}</li>;
-      })}
+      <Notes>{notes ? notes : "-"}</Notes>
+      <CharacteristicsBloc insect={insect} />
+      <StatesBloc estados={estados} />
+      <BiblioBloc references={references} />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 90px);
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-bottom: 32px;
   width: 97%;
   max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   & h2 {
     font-size: 32px;
     font-style: italic;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    border-bottom: solid 1px;
   }
   & h3 {
-    margin: 12px 0;
+    margin-bottom: 24px;
+    font-size: 20px;
   }
-  & p {
-    margin: 0;
-    margin-bottom: 12px;
-  }
-  & li {
-    line-height: 1.5;
-  }
+`;
+
+const Notes = styled.p`
+  margin: 0;
+  margin-bottom: 24px;
 `;
 
 export async function getStaticPaths() {
