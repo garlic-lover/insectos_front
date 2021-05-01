@@ -13,7 +13,20 @@ const INSECT = `
       }
       references {
         clave
-        _id
+        _id{
+          _id
+          authors
+          date
+          name
+          journal
+          volume
+          number
+          editorial
+          pages{
+            from
+            to
+          }
+        }
       }
       notes
       eatableStates

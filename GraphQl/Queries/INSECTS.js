@@ -15,7 +15,9 @@ const INSECTS = gql`
       }
       references {
         clave
-        _id
+        _id {
+          _id
+        }
       }
     }
   }
