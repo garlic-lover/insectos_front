@@ -16,9 +16,7 @@ export default function MapPage() {
 
   return (
     <Wrapper>
-      <div>
-        <slider />
-      </div>
+      <div></div>
       <PageSelect>
         <nav>
           <PageOption

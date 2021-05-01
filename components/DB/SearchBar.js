@@ -16,7 +16,11 @@ export default function SearchBar({ filters, filtersInit }) {
     <Wrapper>
       <Title>Filter</Title>
       <Search>
-        <input placeholder="Search a specie" />{" "}
+        <input
+          value=""
+          placeholder="Search a specie"
+          onChange={() => alert("Disponible pronto...")}
+        />{" "}
         <span className="lnr lnr-funnel" onClick={handleToggleFilterDisplay} />
       </Search>
       <Filters filtersDisplay={filtersDisplay}>

@@ -42,12 +42,13 @@ export default function Layout({ children }) {
       <ThemeProvider theme={theme}>
         <GlobalStyles menuOpened={menuOpened} />
         <Main data-scroll data-scroll-container id="stick">
-          <Header />{" "}
-          <PageTransition timeout={500} classNames="page-transition">
-            <Container isHomePage={router.pathname === "/"}>
+          <Header />
+          <Container isHomePage={router.pathname === "/"}>
+            <PageTransition timeout={500} classNames="page-transition">
               {children}
-            </Container>
-          </PageTransition>
+            </PageTransition>
+          </Container>
+
           {router.pathname !== "/db" && <Footer />}
         </Main>
       </ThemeProvider>
