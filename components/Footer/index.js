@@ -6,8 +6,16 @@ export default function Footer() {
       <p>Contact : insectivora@outlook.es</p>
       <SocialNetworks>
         <a
+          href="https://www.facebook.com/Insect%C3%ADvora-103282298481156"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span className="icon-facebook" />
+        </a>
+        <a
           href="https://www.instagram.com/insectivora_facts/?hl=es"
           target="_blank"
+          rel="noreferrer"
         >
           <p>insectivora_facts</p>
           <span className="icon-instagram" />
@@ -32,10 +40,12 @@ const Wrapper = styled.footer`
 const SocialNetworks = styled.div`
   position: absolute;
   bottom: 12px;
-  right: 24px;
-  width: 48px;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  padding: 0 12px;
+  justify-content: space-between;
   align-items: flex-end;
   & p {
     color: white;
@@ -49,7 +59,7 @@ const SocialNetworks = styled.div`
     align-items: flex-end;
   }
   & span {
-    font-size: 36px;
+    font-size: 32px;
     color: white;
     border: none;
   }
